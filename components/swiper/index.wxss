@@ -45,12 +45,15 @@
 } */
 
 .screen-swiper {
-  min-height: 375rpx;
+  height: 250rpx;
+  width: 686rpx;
+  margin: auto;
+  border-radius: 10rpx;
 }
 
 .screen-swiper image {
   width: 100%;
   display: block;
   height: 100%;
-  margin: 0;
+  border-radius: 10rpx;
 }

@@ -1,1 +1,59 @@
 /* pages/home/index.wxss */
+
+.scrollPage {
+  height: 100vh;
+}
+.main-product{
+  display: flex;
+  align-items: center;
+}
+.product-list{
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+.title{
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  color: #181C28;
+  flex: 1;
+}
+.more{
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #7F8593;
+  text-align: right;
+}
+.product-new{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-item{
+  flex: 1;
+
+}
+.product-name{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #181C28;
+}
+.product-advantage{
+  margin-top:12rpx; 
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #B2B4BE;
+}
+.product-tag{
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  margin-top: 12rpx;
+  color: #15B0A0;
+  border: 1px solid #B4ECE6;
+  border-radius: 4rpx;
+  width: 125rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+}
