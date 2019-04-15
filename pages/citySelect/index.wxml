@@ -1,20 +1,12 @@
-<!-- <view class="gps"  data-text="{{city}}" bindtap = "wxSortPickerViewItemTap">
-    {{city}} <text class="gpsif">GPS定位</text>
-    <view class="dw" catchtap ="cxgps">
-        <image style="width: 30px; height: 30px;position: absolute;top: 50%;left:40px;margin-top: -15px " src="{{src}}"></image>
-    </view>
-</view> -->
-
-
 <block wx:if="{{isShowLetter}}">
     <view class="showSlectedLetter">
         {{showLetter}}
     </view>
 </block>
 <view class="searchLetter touchClass" >
-    <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" wx:key="index" data-letter="{{item.name}}" catchtouchstart="searchStart" catchtouchmove="searchMove" catchtouchend="searchEnd">{{item.name}}</view>
+    <view wx:for="{{searchLetter}}" style="height:{{itemH}}px" wx:key="index" catchtap='searchStart'  data-letter="{{item}}" >{{item}}</view>
 </view>
-<scroll-view scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll"  scroll-into-view="{{showLetter}}">
+<scroll-view scroll-y="true" style="height:{{winHeight}}px" scroll-with-animation="{{true}}"  scroll-into-view="{{showLetter}}">
     <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}"  id="{{item.initial}}">
         <block wx:if="{{index===0}}" >
             <view class="hot-item">
