@@ -1,0 +1,16 @@
+<!-- 走马灯组件 -->
+<swiper 
+  class="screen-swiper round-dot" 
+  indicator-dots="{{indicatorDots}}"
+  indicator-color="{{indicatorColor}}"
+  indicator-active-color="{{indicatorActiveColor}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}" 
+  duration="{{duration}}"
+  circular="{{circular}}"
+  easing-function="{{easingFunction}}"
+  >
+  <swiper-item wx:for="{{swiperList}}" wx:key="index">
+      <image src="{{item.imageUrl}}" data-item='{{item}}' class="slide-image" bindtap='bindchange' mode='{{imageModel}}'/>
+  </swiper-item>
+</swiper>
