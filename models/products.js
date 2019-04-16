@@ -11,9 +11,9 @@ export default {
   effects: {
     // 获取产品
     async getProductsListAction({ payload }, { put }) {
-      const res = await getNewProducts(payload)
+      const res = await getProductsList(payload)
       if (res.resultCode === 200) {
-        put({ type: 'setNewProducts', payload: res.data })
+        put({ type: 'setProductsList', payload: res.data })
       }
     },
   },
