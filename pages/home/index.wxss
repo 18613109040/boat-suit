@@ -1,4 +1,4 @@
-/* pages/home/index.wxss */
+
 
 .scrollPage {
   height: 100vh;
@@ -56,4 +56,89 @@
   height: 32rpx;
   text-align: center;
   line-height: 32rpx;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.product-hot-list{
+  width: 750rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 20rpx;
+}
+.hot-product{
+  display: inline-block;
+  border-radius: 12rpx;
+  width: 310rpx;
+  height: 190rpx;
+  margin-left: 25rpx;
+}
+.col{
+  display: flex;
+  align-items: center;
+  padding-top: 30rpx;
+}
+.line{
+  
+  border-bottom-right-radius: 4rpx;
+  border-top-right-radius: 4rpx; 
+  width: 8rpx;
+  height: 30rpx;
+}
+.name{
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  margin-left: 16rpx;
+}
+.des{
+  margin-top: 8rpx;
+  opacity: 0.6;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  margin-left: 24rpx;
+}
+.search{
+  margin-top: 25rpx;
+  margin-left: 24rpx;
+  border-radius: 16rpx;
+  width: 72rpx;
+  height: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 32rpx;
+}
+.line-color-0{
+  background: #F7CCA5;
+}
+.name-color-0{
+  color: #F7CCA5;
+}
+.des-color-0{
+  color: #F7CCA5;
+}
+.search-color-0{
+ color: #F7CCA5;
+ border: 1px solid #F7CCA5;
+}
+.product-color-0{
+  background-image: linear-gradient(-135deg, #3F3F3F, #525152);
+}
+.product-color-1{
+  background-image: linear-gradient(-135deg, #D3B382, #EBD39F);
+}
+.line-color-1{
+  background: #997B4B;
+}
+.name-color-1{
+  color: #FFFFFF;
+}
+.des-color-1{
+  color: #FFFFFF;
+}
+.search-color-1{
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
 }

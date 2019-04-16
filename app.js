@@ -1,8 +1,10 @@
 import zoro, { dispatcher } from './libs/zoro.js'
 import { setStore } from './libs/weapp-redux.js'
-import account from './models/account.js'
+import home from './models/home.js'
+import products from './models/products.js'
 const app = zoro()
-app.model(account)
+app.model(home)
+app.model(products)
 
 const store = app.start(false)
 setStore(store)

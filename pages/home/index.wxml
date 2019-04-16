@@ -1,3 +1,4 @@
+
 <scroll-view scroll-y class="scrollPage">
   <component-swiper swiperList="{{banner}}" bind:swiperlClick="swiperlClick"/>
   <view class='main-product'>
@@ -21,3 +22,18 @@
     </view>
   </view>
 </scroll-view> 
+
+<view>
+  <!-- <component-swiper swiperList="{{banner}}" bind:swiperlClick="swiperlClick"/> -->
+  <!-- <scroll-view scroll-x class='product-hot-list'>
+    <view class='hot-product product-color-0' wx:for="{{hotProducts}}" wx:key="{{index}}">
+      <view class='col'>
+        <view class='line line-color-{{index}}'></view>
+        <view class='name name-color-{{index}}'>{{item.name}}</view>
+      </view>
+      <view class='des des-color-{{index}}'>5小时放款，月费率2.99%</view>
+      <view class='search search-color-{{index}}'>查看</view>
+    </view>
+  </scroll-view> -->
+</view> 
+

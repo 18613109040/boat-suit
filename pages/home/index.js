@@ -1,5 +1,12 @@
-// pages/home/index.js
-Page({
+import {  promise } from '../../utils/util.js'
+import { getCurrentAddress } from '../../utils/position.js'
+import {
+  dispatcher
+} from '../../libs/zoro'
+import {
+  connect
+} from '../../libs/weapp-redux'
+const pageConfig = {
 
   /**
    * 页面的初始数据
@@ -18,14 +25,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 热门产品
+    dispatcher.home.getNewProductsAction({
+      city: "1/44/1",
+      recommendType: "N"
+    })
+    // 最新产品
+    dispatcher.home.getHotProductsAction({
+      city: "1/44/1",
+      recommendType: "H"
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // getCurrentAddress((res)=>{
+    //   console.dir(res)
+    // })
   },
 
   /**
@@ -72,4 +90,12 @@ Page({
   swiperlClick(){
 
   }
-})
+}
+function mapStateToProps({ home }) {
+  const { newProducts, hotProducts } = home.toJS()
+  return {
+    newProducts,
+    hotProducts
+  }
+}
+Page(connect(mapStateToProps)(pageConfig))

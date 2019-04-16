@@ -1,13 +1,18 @@
 {
   "pages": [
-    "pages/home/index",
-    "pages/citySelect/index",
+
     
-    "pages/index/index",
-    "pages/logs/logs"
-   
+    "pages/home/index",
+    "pages/products/index",
+    "pages/citySelect/index"
+
     
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取位置信息"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
