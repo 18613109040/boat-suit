@@ -1,39 +1,39 @@
-
-<scroll-view scroll-y class="scrollPage">
-  <component-swiper swiperList="{{banner}}" bind:swiperlClick="swiperlClick"/>
+<view class="scrollPage">
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{banner}}" wx:key="index">
+      <image src="{{item.imageUrl}}" data-item='{{item}}' class="slide-image" bindtap='bindchange' mode='{{imageModel}}' />
+    </swiper-item>
+  </swiper>
   <view class='main-product'>
-    <view>
-      <image></image>
-    </view>
-    <view>
-      <image></image>
-    </view>
+    <image class='rapid-loan' src='../../images/home/product01.png'></image>
+    <image class='bank-loan' src='../../images/home/product02.png'></image>
   </view>
   <view class='product-list'>
     <view class='title'>最新产品</view>
     <view class='more'>更多</view>
   </view>
   <view class='product-new'>
-    <view class='product-item' wx:for="5">
-      <image class='product-logo'></image>
-      <view class='product-name'>51人品贷</view>
-      <view class='product-advantage'>低息秒批</view>
-      <view class='product-tag'>月利息0.6%</view>
+    <view class='product-item' wx:for="{{newProducts}}" wx:key="{{index}}" >
+        <image class='product-logo' src="{{item.ico||'http://cms.dev.dataenergy.tech/products/ico/default.png'}}"></image>
+        <view class='product-name'>{{item.name}}</view>
+        <view class='product-advantage'>{{item.abs}}</view>
+        <view class='product-tag'>
+          <text class='product-tag-text'>{{item.rate}}</text>
+        </view>
     </view>
   </view>
-</scroll-view> 
-
-<view>
-  <!-- <component-swiper swiperList="{{banner}}" bind:swiperlClick="swiperlClick"/> -->
-  <!-- <scroll-view scroll-x class='product-hot-list'>
+  <view class='product-list'>
+    <view class='title'>热门产品</view>
+    <view class='more'>更多</view>
+  </view>
+  <scroll-view scroll-x class='product-hot-list'>
     <view class='hot-product product-color-0' wx:for="{{hotProducts}}" wx:key="{{index}}">
       <view class='col'>
         <view class='line line-color-{{index}}'></view>
         <view class='name name-color-{{index}}'>{{item.name}}</view>
       </view>
-      <view class='des des-color-{{index}}'>5小时放款，月费率2.99%</view>
+      <view class='des des-color-{{index}}'>{{item.abs}}</view>
       <view class='search search-color-{{index}}'>查看</view>
     </view>
-  </scroll-view> -->
-</view> 
-
+  </scroll-view>
+</view>

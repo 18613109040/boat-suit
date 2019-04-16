@@ -1,17 +1,40 @@
 {
   "pages": [
-
-    
+   
     "pages/home/index",
     "pages/products/index",
-    "pages/citySelect/index"
-
-    
+    "pages/citySelect/index",
+    "pages/find/index",
+    "pages/account/index"
   ],
   "permission": {
     "scope.userLocation": {
       "desc": "获取位置信息"
     }
+  },
+  "tabBar": {
+    "color": "#B2B4BE",
+    "selectedColor": "#4283F4",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/menu/home_gray.png",
+        "selectedIconPath": "images/menu/home_prink.png"
+      },
+      {
+        "pagePath": "pages/find/index",
+        "text": "发现",
+        "iconPath": "images/menu/find_gray.png",
+        "selectedIconPath": "images/menu/find_prink.png"
+      },
+      {
+        "pagePath": "pages/account/index",
+        "text": "我的",
+        "iconPath": "images/menu/my_gray.png",
+        "selectedIconPath": "images/menu/my_prink.png"
+      }
+    ]
   },
   "window": {
     "backgroundTextStyle": "light",

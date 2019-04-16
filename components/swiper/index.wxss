@@ -1,49 +1,6 @@
 /* ==================
          轮播
  ==================== */
-
-/* .square-dot .wx-swiper-dot {
-  background: #fff;
-  opacity: 0.4;
-  width: 10rpx;
-  height: 10rpx;
-  border-radius: 20rpx;
-  transition: all 0.3s ease-in-out 0s;
-} */
-
-/* .square-dot .wx-swiper-dot .wx-swiper-dot-active {
-  opacity: 1;
-  width: 30rpx;
-} */
-
-.round-dot  .wx-swiper-dot{
-    width:40rpx;
-    display: inline-flex;
-    height: 10rpx;
-    margin-left: 20rpx;
-    justify-content:space-between;
-}
-/* 
-.round-dot .wx-swiper-dot .wx-swiper-dot-active::after {
-  content: "";
-  position: absolute;
-  width: 10rpx;
-  height: 10rpx;
-  top: 0rpx;
-  left: 0rpx;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
-  border-radius: 20rpx;
-} */
-
-/* .round-dot .wx-swiper-dot .wx-swiper-dot-active {
-  width: 18rpx;
-  height: 18rpx;
-  top: 0rpx;
-} */
-
 .screen-swiper {
   height: 250rpx;
   width: 686rpx;
@@ -56,4 +13,49 @@
   display: block;
   height: 100%;
   border-radius: 10rpx;
+}
+/* ==================
+         轮播
+ ==================== */
+
+swiper.square-dot .wx-swiper-dot {
+  background-color: #fff;
+  opacity: 0.4;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 20rpx;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
+  opacity: 1;
+  width: 30rpx;
+}
+
+swiper.round-dot .wx-swiper-dot {
+  width: 10rpx;
+  height: 10rpx;
+  top: -4rpx;
+  transition: all 0.3s ease-in-out 0s;
+  position: relative;
+}
+
+swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active::after {
+  content: "";
+  position: absolute;
+  width: 10rpx;
+  height: 10rpx;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+
+swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
+  width: 18rpx;
+  height: 18rpx;
+  top: 0rpx;
 }
