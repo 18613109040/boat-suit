@@ -3,6 +3,7 @@
   "navigationBarBackgroundColor": "#FFFFFF",
   "navigationBarTextStyle": "black",
   "usingComponents": {
-    "component-swiper": "/components/swiper/index"
+    "component-header": "/components/header/index",
+    "component-icon": "/components/icon/index"
   }
 }

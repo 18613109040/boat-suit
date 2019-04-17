@@ -1,0 +1,10 @@
+<view class="custom" >
+  <view class="nav-bar " style="padding-top:{{statusBarHeight}}px;">
+    <slot wx:if="{{left}}" name="left"></slot>
+    <navigator wx:else class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <component-icon type="back" size="40" color="#323232"/> 返回
+    </navigator>
+    <slot wx:if="{{center}}" name="center"></slot>
+    <view wx:else class='title'>{{title}}{{customBarHeight}}</view>
+  </view>
+</view>

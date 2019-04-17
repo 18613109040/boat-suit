@@ -10,14 +10,19 @@ const store = app.start(false)
 setStore(store)
 App({
   onLaunch() {
+    wx.getSystemInfo({
+      success: e => {
+        const { statusBarHeight } = e;
+        this.globalData.statusBarHeight = statusBarHeight;
+        // const { width, height, top, bottom, right}  = wx.getMenuButtonBoundingClientRect();
+        // this.globalData.customBarHeight = bottom + top - statusBarHeight;
+        // console.dir(wx.getMenuButtonBoundingClientRect())
+      }
+    })
     app.setup()
   },
   globalData: {
     userInfo: null,
-    color: '#FF7920',
-    point: {
-      latitude: 0,
-      longitude: 0
-    }
+    statusBarHeight: 20
   }
 })

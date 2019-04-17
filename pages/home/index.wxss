@@ -1,3 +1,16 @@
+.city-point {
+  padding-left: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.city-name {
+  margin-left: 8rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #181c28;
+}
+
 swiper.square-dot .wx-swiper-dot {
   background-color: #fff;
   /* opacity: 0.4; */
@@ -81,7 +94,6 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 .product-item {
   flex: 1;
 }
-
 
 .product-logo {
   width: 88rpx;
