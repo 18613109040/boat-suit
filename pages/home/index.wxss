@@ -42,6 +42,7 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 
 .scrollPage {
   height: 100vh;
+  margin-top: 44rpx;
 }
 
 .main-product {
@@ -87,12 +88,23 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 .product-new {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 32rpx;
+  justify-content: center;
+  /* width: calc(100% - 64rpx); */
+  /* padding: 32rpx; */
+  /* margin-left: 32rpx;
+  margin-top: 32rpx; */
+  padding: 32rpx 22rpx 0rpx 22rpx;
 }
 
 .product-item {
-  flex: 1;
+  width: 25%;
+  transition: all 0.6s ease-in-out 0s;
+  transform: translateX(0rpx);
+  flex-direction: column;
+  position: relative;
+  transition-duration: 0s;
+  text-align: center;
+  padding: 0rpx 10rpx 0rpx 10rpx;
 }
 
 .product-logo {
@@ -115,10 +127,12 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   font-family: PingFangSC-Regular;
   font-size: 22rpx;
   color: #b2b4be;
+  text-align: left;
 }
 
 .product-tag {
   margin-top: 12rpx;
+  text-align: left;
 }
 
 .product-tag-text {

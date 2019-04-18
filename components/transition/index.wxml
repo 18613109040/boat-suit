@@ -1,0 +1,9 @@
+<view
+  wx:if="{{ inited }}"
+  catchtouchmove="ture"
+  class="transition custom-class"
+  style="animation-name: {{ name }}-{{ type }}; animation-duration: {{ duration }}ms; {{ display ? '' : 'display: none;' }} {{ customStyle }}"
+  bind:animationend="onAnimationEnd"
+>
+  <slot />
+</view>

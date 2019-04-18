@@ -1,0 +1,39 @@
+
+<view class='filter-bar-meun' >
+  <view class='bar-item' wx:for="{{filterData}}" wx:key="{{index}}" data-index='{{index}}' bindtap='clickSortMenu'>
+    <view class='title {{item.selected?"sort-chose":""}}'>{{item.name}}</view>
+    <view wx:if="{{item.orders.length>0}}">
+      <component-icon type='up' color='{{item.selected?"#4283F4":"#B2B4BE"}}' size='20' wx:if="{{show&&selectIndex==index}}"/>
+      <component-icon type='down' color='{{item.selected?"#4283F4":"#B2B4BE"}}' size='20' wx:else/>
+    </view>
+  </view>
+</view>
+
+<component-popup show="{{ show }}" custom-style="top:{{statusBarHeight+customBarHeight+48}}px;"  overlayStyle="top:{{statusBarHeight+customBarHeight+48}}px;"  position="top" overlay="{{ true }}">
+  <!-- 综合排序 -->
+  <view   wx:if="{{selectIndex==0}}" >
+    <view class='sort-item' wx:for="{{filterData[selectIndex].orders}}" wx:key="{{index}}" bindtap='comprehensiveChose' data-index='{{index}}'>
+      <view class='sort-name {{item.selected?"sort-chose":""}}'>{{item.name}}</view>
+      <component-icon type='check' wx:if="{{item.selected}}"/>
+    </view>
+  </view>
+  <!-- 筛选 -->
+  <scroll-view scroll-y class="scroll-view_H"   wx:if="{{selectIndex==3}}" class='popup-content' style='height:{{screenHeight -statusBarHeight-customBarHeight-150}}px'>
+    <view wx:for="{{filterData[selectIndex].orders}}" wx:key="{{index}}" class='o-filter'>
+      <view class='o-type'>{{item.name}}</view>
+      <view class='tag-all'>
+        <view wx:for="{{item.orders}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{idx}}" data-index='{{index}}-{{idx}}'  bindtap='filterClick'>
+        <component-icon type='check-b' size='30' class='chose-icon' wx:if="{{itemName.selected}}"/>
+         <view class='tag-item {{itemName.selected?"chose-tag-item":""}}' >
+          {{itemName.name}}
+          </view>
+        </view>
+       
+      </view>
+    </view>
+    <view class='footer-bar'>
+      <button class='reset-btn' bindtap='filterRest'>重置</button>
+      <button class='enter-btn' bindtap='filterEnter'>确定</button>
+    </view>
+  </scroll-view>
+</component-popup>

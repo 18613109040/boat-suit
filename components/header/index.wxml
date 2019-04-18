@@ -1,10 +1,14 @@
-<view class="custom" >
-  <view class="nav-bar " style="padding-top:{{statusBarHeight}}px;">
-    <slot wx:if="{{left}}" name="left"></slot>
-    <navigator wx:else class='action' open-type="navigateBack" delta="1" hover-class="none">
-      <component-icon type="back" size="40" color="#323232"/> 返回
-    </navigator>
-    <slot wx:if="{{center}}" name="center"></slot>
-    <view wx:else class='title'>{{title}}{{customBarHeight}}</view>
-  </view>
+<view class="navigation-bar" style="padding-top:{{statusBarHeight}}px;height:{{customBarHeight}}px;line-height:{{customBarHeight}}px;background:{{background}};color:{{color}};font-size:{{fontSize}};position:{{fixed&&'fixed'}};transform:translateY({{!show?-statusBarHeight-customBarHeight+'px':'0'}});">
+  
+	<view class="back" bind:tap="navigateBack"style="padding-top:{{statusBarHeight}}px;height:{{customBarHeight}}px;line-height:{{customBarHeight}}px;">
+		<slot wx:if="{{leftSolt}}" name="left"></slot>
+    <view wx:else class='default-back'>
+      <component-icon type="back" size="40" color="#323232"/>
+		  <view class="back-home" style="">返回</view>
+    </view>
+    
+	</view>
+  <slot wx:if="contentSolt" name='content'></slot>
+	<view wx:else class="title"  >{{title!='none'?title:''}}</view>
 </view>
+<view class="navigation-bar-holder" wx:if="{{fixed && show}}" style="background:{{placeholderBg}};padding-top:{{statusBarHeight}}px;height:{{customBarHeight}}px;line-height:{{customBarHeight}}px;width:750rpx;"></view>

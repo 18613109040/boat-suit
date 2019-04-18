@@ -1,2 +1,11 @@
-<!--pages/products/index.wxml-->
-<text>pages/products/index.wxml</text>
+<component-header  contentSolt="{{true}}">
+  <view slot='content' class='nav-tab' >
+    <text class='nav-tab-1 nav-tab-select'>急速贷</text>
+    <text class='nav-tab-2'>银行贷</text>
+  </view>
+</component-header>
+<component-filter/>
+<scroll-view scroll-y style='height:{{screenHeight-50}}px' class='product-content' bindscrolltolower="lower"
+bindscroll="scroll">
+  <component-items wx:for="{{list}}" wx:key="{{index}}" product="{{item}}"/>
+</scroll-view>

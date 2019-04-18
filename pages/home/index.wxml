@@ -1,13 +1,17 @@
-<component-header left="{{true}}">
+<component-header leftSolt="{{true}}" >
   <view slot='left' class='city-point'>
     <component-icon type="point" size="40" color="#B2B4BE"/>
     <text class="city-name">广州市</text>
   </view>
 </component-header>
-<view style='height:100vh;'>
-  <!-- <image wx:for="{{9}}" src=''></image> -->
-</view>
-<!-- <view class="scrollPage">
+<!-- <component-custom  leftSolt="{{true}}">
+ <view slot='left' class='city-point' bindtap='toSelectPage'>
+    <component-icon type="point" size="40" color="#B2B4BE"/>
+    <view class="city-name">{{city.name}}</view>
+  </view>
+  <view slot="content">背景颜色</view>
+</component-custom> -->
+<scroll-view scroll-x  class="scrollPage">
   <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{banner}}" wx:key="index">
       <image src="{{item.imageUrl}}" data-item='{{item}}' class="slide-image" bindtap='bindchange' mode='{{imageModel}}' />
@@ -45,4 +49,4 @@
       <view class='search search-color-{{index}}'>查看</view>
     </view>
   </scroll-view>
-</view> -->
+</scroll-view>

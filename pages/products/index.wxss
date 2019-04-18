@@ -1,1 +1,34 @@
 /* pages/products/index.wxss */
+.nav-tab{
+    margin: 0 auto;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #4283F4;
+    /* border: 1px solid #4283F4;
+     border-radius: 6rpx;
+     height: 48rpx;
+     width: 288rpx; */
+
+}
+.nav-tab-1{
+  text-align: center;
+  border: 1px solid #4283F4;
+  border-top-left-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+}
+.nav-tab-2{
+  text-align: center;
+  border: 1px solid #4283F4;
+  border-top-right-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  border-left: 0px;
+}
+.nav-tab-select{
+ background: #4283F4;
+color: #FFFFFF;
+}
+.product-content{
+  margin-top: 50px;
+}

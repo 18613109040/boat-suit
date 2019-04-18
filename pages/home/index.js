@@ -1,5 +1,5 @@
 import {  promise } from '../../utils/util.js'
-import { getCurrentAddress } from '../../utils/position.js'
+
 import {
   dispatcher
 } from '../../libs/zoro'
@@ -39,9 +39,7 @@ const pageConfig = {
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    getCurrentAddress((res)=>{
-      console.dir(res)
-    })
+  
   },
 
   /**
@@ -87,13 +85,20 @@ const pageConfig = {
   },
   swiperlClick(){
 
+  },
+  toSelectPage(){
+    wx.navigateTo({
+      url: '/pages/citySelect/index',
+    })
   }
 }
-function mapStateToProps({ home }) {
+function mapStateToProps({ home, account }) {
   const { newProducts, hotProducts } = home.toJS()
+  const { city } = account.toJS()
   return {
     newProducts,
-    hotProducts
+    hotProducts,
+    city
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

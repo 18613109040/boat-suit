@@ -1,3 +1,10 @@
+<component-custom  leftSolt="{{true}}">
+ <view slot='left' class='city-point' bindtap='toSelectPage'>
+    <component-icon type="point" size="40" color="#B2B4BE"/>
+    <text class="city-name">{{city.name}}</text>
+  </view>
+  <view slot="content">选择所在城市</view>
+</component-custom>
 <block wx:if="{{isShowLetter}}">
     <view class="showSlectedLetter">
         {{showLetter}}

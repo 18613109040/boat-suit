@@ -1,11 +1,11 @@
 {
   "pages": [
-   
-    "pages/home/index",
     "pages/products/index",
+    "pages/home/index",
     "pages/citySelect/index",
     "pages/find/index",
     "pages/account/index"
+   
   ],
   "permission": {
     "scope.userLocation": {
