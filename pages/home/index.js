@@ -1,5 +1,5 @@
 import {  promise } from '../../utils/util.js'
-
+const app = getApp();
 import {
   dispatcher
 } from '../../libs/zoro'
@@ -12,10 +12,11 @@ const pageConfig = {
    * 页面的初始数据
    */
   data: {
+    screenHeight: app.globalData.screenHeight,
     banner:[{
-      imageUrl:'//static.rong360.com/upload/jpg/83/e6/83e6bfdf4fdd3c6a54fa44c8654a4014.jpg'
+      imageUrl:'/images/home/banner.png'
     },{
-        imageUrl: '//static.rong360.com/upload/png/b7/2a/b72a5142d1592212e93b4378599a9590.png'
+        imageUrl: '/images/home/banner.png'
     }]
   },
 
@@ -23,6 +24,7 @@ const pageConfig = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.dir(this.data.screenHeight)
     // 热门产品
     dispatcher.home.getNewProductsAction({
       city: "1/44/1",
@@ -89,6 +91,16 @@ const pageConfig = {
   toSelectPage(){
     wx.navigateTo({
       url: '/pages/citySelect/index',
+    })
+  },
+  goToNew(){
+    wx.navigateTo({
+      url: '/pages/products/index',
+    })
+  },
+  goToHot(){
+    wx.navigateTo({
+      url: '/pages/products/index',
     })
   }
 }

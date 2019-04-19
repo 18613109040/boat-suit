@@ -3,7 +3,7 @@ import {
 } from '../libs/zoro'
 import Immutable from '../libs/immutable.js'
 const inintFilter = {
-  product: [{
+  productMenu: [{
     name: '极速贷',
     selected: true
   }, {
@@ -199,6 +199,13 @@ export default {
     setRest({ payload }, state){
       let newState = state.toJS()
       newState.filterData[3] = inintFilter.filterData[3]
+      return Immutable.fromJS({ ...newState })
+    },
+    setProductMenu({ payload }, state){
+      let newState = state.toJS()
+      newState.productMenu.map((item,index)=>{
+        item.selected = index == payload ? true : false
+      })
       return Immutable.fromJS({ ...newState })
     }
   },

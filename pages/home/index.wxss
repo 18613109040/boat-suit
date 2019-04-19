@@ -26,6 +26,7 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .screen-swiper {
+  margin-top: 44rpx;
   height: 250rpx;
   width: 686rpx;
   margin: auto;
@@ -41,8 +42,7 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .scrollPage {
-  height: 100vh;
-  margin-top: 44rpx;
+  
 }
 
 .main-product {
@@ -156,7 +156,6 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   /* overflow: hidden; */
   white-space: nowrap;
   margin-top: 20rpx;
-  margin-bottom: 64rpx;
 }
 
 .hot-product {

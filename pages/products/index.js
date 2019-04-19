@@ -13,7 +13,7 @@ const pageConfig = {
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
     customBarHeight: app.globalData.customBarHeight,
-    screenHeight: app.globalData.screenHeight,
+    windowHeight: app.globalData.windowHeight,
   },
 
   /**
@@ -82,6 +82,10 @@ const pageConfig = {
   onShareAppMessage: function () {
 
   },
+  clickMenu(e){
+    const { index } = e.currentTarget.dataset;
+    dispatcher.filter.setProductMenu(index)
+  },
   lower(){
     console.dir('==============')
   },
@@ -89,10 +93,12 @@ const pageConfig = {
     console.dir('==============')
   }
 }
-function mapStateToProps({ products }) {
+function mapStateToProps({ products, filter }) {
+  const { productMenu } = filter.toJS()
   const { list } = products.toJS()
   return {
-    list
+    list,
+    productMenu
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

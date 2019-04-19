@@ -28,7 +28,7 @@ App({
         }else{
           this.globalData.customBarHeight = 48
         }
-        this.globalData.screenHeight = screenHeight
+        this.globalData.screenHeight = windowHeight - this.globalData.customBarHeight - statusBarHeight;
         // this.globalData.customBarHeight = custom.height + custom.top - statusBarHeight;
         
       }

@@ -4,7 +4,8 @@
     <text class="city-name">广州市</text>
   </view>
 </component-header>
-<scroll-view scroll-x  class="scrollPage">
+
+<scroll-view scroll-y  class="scrollPage" style='height:{{screenHeight}}px' >
   <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{banner}}" wx:key="index">
       <image src="{{item.imageUrl}}" data-item='{{item}}' class="slide-image" bindtap='bindchange' mode='{{imageModel}}' />
@@ -16,7 +17,7 @@
   </view>
   <view class='product-list'>
     <view class='title'>最新产品</view>
-    <view class='more'>更多</view>
+    <view class='more' bindtap='goToNew'>更多</view>
   </view>
   <view class='product-new'>
     <view class='product-item' wx:for="{{newProducts}}" wx:key="{{index}}" >
@@ -30,7 +31,7 @@
   </view>
   <view class='product-list'>
     <view class='title'>热门产品</view>
-    <view class='more'>更多</view>
+    <view class='more'  bindtap='goToHot'>更多</view>
   </view>
   <scroll-view scroll-x class='product-hot-list'>
     <view class='hot-product product-color-0' wx:for="{{hotProducts}}" wx:key="{{index}}">
