@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "选择所在城市",
   "usingComponents": {
-   "component-custom": "/components/custom/index"
+    "component-header": "/components/header/index"
   }
 }

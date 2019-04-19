@@ -1,5 +1,12 @@
 var city = require('../../utils/city.js');
-Page({
+const app = getApp();
+import {
+  dispatcher
+} from '../../libs/zoro'
+import {
+  connect
+} from '../../libs/weapp-redux'
+const pageConfig = {
   data: {
     searchLetter: [],
     showLetter: "",
@@ -16,8 +23,7 @@ Page({
     // 生命周期函数--监听页面加载
     var searchLetter = city.searchLetter;
     var cityList = city.cityList();
-    const sysInfo = wx.getSystemInfoSync();
-    var winHeight = sysInfo.windowHeight;
+    var winHeight = app.globalData.windowHeight;
     var itemH = (winHeight - 50) / searchLetter.length;
     this.setData({
       winHeight: winHeight,
@@ -37,5 +43,15 @@ Page({
     //可以跳转了
     console.log('选择了城市：', city);
   }
-})
+}
 
+function mapStateToProps({ home, account }) {
+  const { newProducts, hotProducts } = home.toJS()
+  const { city } = account.toJS()
+  return {
+    newProducts,
+    hotProducts,
+    city
+  }
+}
+Page(connect(mapStateToProps)(pageConfig))

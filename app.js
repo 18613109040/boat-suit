@@ -18,8 +18,9 @@ App({
     wx.getSystemInfo({
       success: e => {
         console.dir(e)
-        const { statusBarHeight, system, screenHeight } = e;
+        const { statusBarHeight, system, screenHeight, windowHeight } = e;
         this.globalData.statusBarHeight = statusBarHeight;
+        this.globalData.windowHeight = windowHeight;
         const custom = wx.getMenuButtonBoundingClientRect();
         this.globalData.custom = custom;  
         if((/ios/i).test(system)){
@@ -40,6 +41,7 @@ App({
     statusBarHeight: 20,
     customBarHeight: 44,
     screenHeight: 667,
+    windowHeight: 667,
     custom:{
 
     }

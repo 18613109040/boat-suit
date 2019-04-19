@@ -45,7 +45,8 @@ const page = {
         filterData[index].selected = !filterData[index].selected
         dispatcher.filter.setSortSelsectd(filterData)
         this.setData({
-          selectIndex: index
+          selectIndex: index,
+          show: false
         })
       }
       

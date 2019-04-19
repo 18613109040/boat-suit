@@ -1,16 +1,9 @@
 <component-header leftSolt="{{true}}" >
-  <view slot='left' class='city-point'>
+  <view slot='left' class='city-point' bindtap='toSelectPage'>
     <component-icon type="point" size="40" color="#B2B4BE"/>
     <text class="city-name">广州市</text>
   </view>
 </component-header>
-<!-- <component-custom  leftSolt="{{true}}">
- <view slot='left' class='city-point' bindtap='toSelectPage'>
-    <component-icon type="point" size="40" color="#B2B4BE"/>
-    <view class="city-name">{{city.name}}</view>
-  </view>
-  <view slot="content">背景颜色</view>
-</component-custom> -->
 <scroll-view scroll-x  class="scrollPage">
   <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{banner}}" wx:key="index">
