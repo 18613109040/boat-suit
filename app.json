@@ -24,7 +24,7 @@
         "selectedIconPath": "images/menu/home_prink.png"
       },
       {
-        "pagePath": "pages/find/index",
+        "pagePath": "pages/products/index",
         "text": "发现",
         "iconPath": "images/menu/find_gray.png",
         "selectedIconPath": "images/menu/find_prink.png"
