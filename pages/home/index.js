@@ -94,12 +94,12 @@ const pageConfig = {
     })
   },
   goToNew(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/products/index',
     })
   },
   goToHot(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '/pages/products/index',
     })
   }

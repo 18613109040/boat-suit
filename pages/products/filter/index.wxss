@@ -1,4 +1,3 @@
-
 .filter-bar-meun {
   display: flex;
   align-items: center;
@@ -87,11 +86,11 @@
   margin-left: 129rpx;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0;
   height: 0;
   color: transparent;
-}
+} */
 
 .footer-bar {
   margin-top: 36rpx;

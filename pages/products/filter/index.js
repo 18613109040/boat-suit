@@ -104,10 +104,9 @@ const page = {
   }
 }
 function mapStateToProps({ filter }) {
-  const { filterData, product } = filter.toJS()
+  const { filterData } = filter.toJS()
   return {
-    filterData,
-    product
+    filterData
   }
 }
 Component(connectComponent(mapStateToProps)(page))

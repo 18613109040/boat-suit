@@ -5,12 +5,12 @@ Component({
    */
   properties: {
     product:{
-      type:Object,
+      type: Object,
       value: {}
     }
   },
   ready(){
-    
+    console.dir('================')
   },
   /**
    * 组件的初始数据

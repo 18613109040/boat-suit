@@ -1,11 +1,11 @@
-<component-header  contentSolt="{{true}}">
+<component-header  contentSolt="{{true}}" leftSolt="{{true}}" >
   <view slot='content' class='nav-tab' >
     <text bindtap='clickMenu' data-index='{{index}}' class='{{index==0&&item.selected?"nav-tab-1 nav-tab-select":index==1&&item.selected?"nav-tab-2 nav-tab-select":index==0?"nav-tab-1":"nav-tab-2"}}' wx:for="{{productMenu}}" wx:key="{{index}}" >{{item.name}}</text>
-    <!-- <text class='nav-tab-2'>银行贷</text> -->
   </view>
 </component-header>
 <component-filter/>
 <scroll-view scroll-y style='height:{{windowHeight-50}}px' class='product-content' bindscrolltolower="lower"
-bindscroll="scroll">
-  <component-items wx:for="{{list}}" wx:key="{{index}}" product="{{item}}"/>
+bindscroll="scroll"
+ >
+  <component-items wx:for="{{list}}" wx:key="{{index}}" product="{{item}}" wx:if="{{list.length>0}}"/>
 </scroll-view>
