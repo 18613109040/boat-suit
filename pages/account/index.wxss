@@ -1,1 +1,58 @@
-/* pages/account/index.wxss */
+.account-header-bg{
+  background: #4283F4;
+  height: 128rpx;
+}
+.account-info{
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  background: #fff;
+  margin: 32rpx;
+  margin-top: -80rpx;
+  border-radius: 6rpx;
+}
+.account-image{
+  width: 128rpx;
+  height: 128rpx;
+}
+.account-name{
+  font-family: PingFangSC-Semibold;
+  font-size: 48rpx;
+  color: #181C28;
+  text-align: left;
+}
+.account-phone{
+  margin-top: 12rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #7F8593;
+}
+.account-prv{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin: 32rpx;
+  padding: 32rpx;
+  border-radius: 6rpx;
+}
+.image-icon{
+  width: 44rpx;
+  height: 44rpx;
+}
+.account-nav{
+  margin: 32rpx;
+  padding: 0rpx 32rpx 0rpx 32rpx;
+  background: #fff;
+  border-radius: 6rpx;
+}
+.collection{
+  display: flex;
+  align-items: center;
+  height: 104rpx;
+}
+.no-collect{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #7F8593;
+  margin-right: 30rpx;
+}

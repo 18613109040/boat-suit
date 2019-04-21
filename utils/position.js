@@ -19,8 +19,11 @@ export function getCurrentAddress() {
             longitude
           },
           success: function (res) {//成功后的回调
-            const { address_component: { city } } = res.result;
-            resolve(city)
+            const { address_component: { city }, ad_info: { adcode } } = res.result;
+            resolve({
+              name:city,
+              code: adcode
+            })
           },
           fail: function (error) {
             reject('')

@@ -1,0 +1,203 @@
+.detail-header {
+  display: flex;
+  align-items: center;
+}
+.detail{
+  padding: 32rpx;
+  background: #4283F4 ;
+  background-color: #4283F4;
+  padding-bottom: 110rpx;
+}
+.detail-header-image {
+  border: 2rpx solid #fff;
+  border-radius: 6rpx;
+  width: 96rpx;
+  height: 96rpx;
+}
+.detail-header-title{
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  color: #FFFFFF;
+  text-align: left;
+}
+.detail-header-right{
+  margin-left: 18rpx;
+}
+.tag{
+  border: 1px solid #FFFFFF;
+  border-radius: 4rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  text-align: justify;
+  line-height: 20rpx;
+  padding: 0rpx 4rpx 0rpx 4rpx;
+  margin-right: 10rpx;
+}
+.range-title{
+  margin-top: 48rpx;
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  line-height: 24rpx;
+}
+.range-number{
+  font-family: DINCond-Bold;
+  font-size: 56rpx;
+  color: #FFFFFF;
+  text-align: left;
+  line-height: 56rpx;
+  margin-top: 12rpx;
+}
+.title-t{
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  margin-top: 48rpx;
+}
+.title-p{
+  flex: 1;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #FFFFFF;
+}
+.title-n{
+  display: flex;
+  align-items: center;
+}
+.title-i{
+  margin-top: 12rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  flex: 1;
+}
+.interest-calculator{
+  background: #FFFFFF;
+  border-radius: 6rpx;
+  margin: 32rpx;
+  margin-top: -70rpx;
+  padding: 32rpx;
+}
+.calculator{
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #181C28;
+}
+.chose-calculator{
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  
+}
+.clow{
+  flex: 1;
+}
+.select-amount{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #B2B4BE;
+}
+.amount{
+  margin-top: 10rpx;
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #181C28;
+  text-align: left;
+}
+.product-advantages{
+  background: #fff;
+  margin: 32rpx;
+  padding: 32rpx;
+  border-radius: 6rpx;
+}
+.advantages-title{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #181C28;
+  margin-bottom: 33rpx;
+}
+.advantages-icon{
+  position: absolute;
+  z-index: 100;
+}
+.advantages-content{
+  display: flex;
+
+}
+.advantages-item{
+  position: relative;
+  z-index: 10;
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #181C28;
+  border-left: 1rpx solid #E3E3E7;
+  margin-left: 20rpx;
+  padding-left: 36rpx;
+  padding-bottom: 33rpx;
+ 
+}
+.advantages-des{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #B2B4BE;
+
+}
+.app-info{
+  background: #fff;
+  margin: 32rpx;
+  padding: 32rpx;
+  border-radius: 6rpx;
+}
+.app-info-title{
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #181C28;
+
+}
+.app-info-view{
+  display: flex;
+  align-items: center;
+  margin-top: 48rpx;
+  margin-left: 10rpx;
+}
+.app-info-line{
+  width: 16rpx;
+  background: #CFD1D7;
+  border-radius: 2rpx;
+  height: 4rpx;
+  margin-right: 24rpx;
+}
+.app-info-name{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #181C28;
+}
+.btn{
+  background: rgba(81,199,91,0.87);
+  border-radius: 6rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  width: 686rpx;
+  height: 88rpx;
+}
+.footer-btn{
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

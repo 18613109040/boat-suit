@@ -63,7 +63,7 @@ Component({
     },
     title: {//导航栏标题
       type: String,
-      value: 'none', //默认
+      value: '', //默认
       observer: function (newVal, oldVal, changedPath) {
         // console.log(newVal,oldVal,changedPath);
         if (!newVal) {
@@ -95,7 +95,7 @@ Component({
   methods: {
     // 这里是一个自定义方法
     navigateBack() {
-     
+     wx.navigateBack()
     },
     /**
      * 切换导航栏显示

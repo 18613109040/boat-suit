@@ -24,7 +24,6 @@ const pageConfig = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.dir(this.data.screenHeight)
     // 热门产品
     dispatcher.home.getNewProductsAction({
       city: "1/44/1",
@@ -94,19 +93,27 @@ const pageConfig = {
     })
   },
   goToNew(){
+    dispatcher.filter.setProductMenu(0)
     wx.switchTab({
       url: '/pages/products/index',
     })
   },
   goToHot(){
+    dispatcher.filter.setProductMenu(1)
     wx.switchTab({
       url: '/pages/products/index',
     })
+  },
+  gotoDetails(e){
+    const { id, type } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/detail/index?id=${id}&type=${type}`,
+    })
   }
 }
-function mapStateToProps({ home, account }) {
+function mapStateToProps({ home, account, citys }) {
   const { newProducts, hotProducts } = home.toJS()
-  const { city } = account.toJS()
+  const { city } = citys.toJS()
   return {
     newProducts,
     hotProducts,

@@ -1,4 +1,6 @@
-
+page{
+  background: #fff;
+}
 .selection{
   display: flex;
   width: 100%;
@@ -110,9 +112,9 @@
 .touchClass{
   top: 50px;
   margin-top: 35px;
-  right: 0;
+  right: 10rpx;
   /* background-color: #fff; */
-  color: #1296db;
+  color: #181C28;
   font-weight: 700;
 }
 .showSlectedLetter{

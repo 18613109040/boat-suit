@@ -1,7 +1,7 @@
 <component-header leftSolt="{{true}}" >
   <view slot='left' class='city-point' bindtap='toSelectPage'>
     <component-icon type="point" size="40" color="#B2B4BE"/>
-    <text class="city-name">广州市</text>
+    <text class="city-name">{{city.name}}</text>
   </view>
 </component-header>
 
@@ -12,15 +12,15 @@
     </swiper-item>
   </swiper>
   <view class='main-product'>
-    <image class='rapid-loan' src='../../images/home/product01.png'></image>
-    <image class='bank-loan' src='../../images/home/product02.png'></image>
+    <image class='rapid-loan' src='../../images/home/product01.png'  bindtap='goToNew'></image>
+    <image class='bank-loan' src='../../images/home/product02.png' bindtap='goToHot'></image>
   </view>
   <view class='product-list'>
     <view class='title'>最新产品</view>
     <view class='more' bindtap='goToNew'>更多</view>
   </view>
   <view class='product-new'>
-    <view class='product-item' wx:for="{{newProducts}}" wx:key="{{index}}" >
+    <view class='product-item' data-type='{{item.type}}' data-id='{{item.id}}' bindtap='gotoDetails' wx:for="{{newProducts}}" wx:key="{{index}}" >
         <image class='product-logo' src="{{item.ico||'http://cms.dev.dataenergy.tech/products/ico/default.png'}}"></image>
         <view class='product-name'>{{item.name}}</view>
         <view class='product-advantage'>{{item.abs}}</view>

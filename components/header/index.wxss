@@ -31,7 +31,7 @@
   font-size: 30rpx;
 }
 .title{
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 750rpx;
   display: flex;
   align-items: center;

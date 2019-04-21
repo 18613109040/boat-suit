@@ -5,7 +5,6 @@
 </component-header>
 <component-filter/>
 <scroll-view scroll-y style='height:{{windowHeight-50}}px' class='product-content' bindscrolltolower="lower"
-bindscroll="scroll"
  >
   <component-items wx:for="{{list}}" wx:key="{{index}}" product="{{item}}" wx:if="{{list.length>0}}"/>
 </scroll-view>

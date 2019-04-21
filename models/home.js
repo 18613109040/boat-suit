@@ -21,7 +21,7 @@ export default {
       if (res.resultCode === 200) {
         put({ type: 'setHotProducts', payload: res.data })
       }
-    },
+    }
     
   },
   reducers: {
@@ -32,6 +32,6 @@ export default {
     setHotProducts({ payload }, state) {
       let newState = state.toJS()
       return Immutable.fromJS({ ...newState, hotProducts: payload || [] })
-    },
+    }
   },
 }

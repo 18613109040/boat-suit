@@ -14,7 +14,7 @@
         </view>
         <view class='info'>
           <view class='info-title'>放款</view>
-          <view class='info-value'>{{item.lendingTime}}</view>
+          <view class='info-value'>{{product.lendingTime}}</view>
         </view>
         <view class='info'>
           <view class='info-title'>期限</view>

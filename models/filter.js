@@ -5,10 +5,12 @@ import Immutable from '../libs/immutable.js'
 const inintFilter = {
   productMenu: [{
     name: '极速贷',
-    selected: true
+    selected: true,
+    type:'NL'
   }, {
     name: '银行贷',
-    selected: false
+    selected: false,
+    type:'BL'
   }],
   filterData: [{
     name: '综合排序',
@@ -88,7 +90,7 @@ const inintFilter = {
       name: '机构类型',
       selected: false,
       sortOrder: '',
-      sortType: '',
+      sortType: 'companyType',
       orders: [{
         name: '不限',
         selected: true,
@@ -98,22 +100,22 @@ const inintFilter = {
         name: '银行',
         selected: false,
         sortOrder: '',
-        sortType: '',
+        sortType: 'BANK',
       }, {
         name: '小贷公司',
         selected: false,
         sortOrder: '',
-        sortType: '',
+        sortType: 'LC',
       }, {
         name: '典当行',
         selected: false,
         sortOrder: '',
-        sortType: '',
+        sortType: 'PS',
       }, {
         name: '其他',
         selected: false,
         sortOrder: '',
-        sortType: '',
+        sortType: 'OTHER',
       }]
     }, {
       name: '抵押类型',

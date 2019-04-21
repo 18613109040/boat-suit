@@ -12,17 +12,25 @@ const pageConfig = {
    */
   data: {
     screenHeight: app.globalData.screenHeight,
+    tabBarHeight: app.globalData.tabBarHeight,
+    cabinOptions:[{
+      name: '12月',
+      value:12
+    }, {
+        name: '11月',
+        value: 11
+      }, {
+        name: '10月',
+        value: 10
+      }]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.login({
-      success(res) {
-        console.dir(res)
-      }
-    })
+    console.dir(options)
+    dispatcher.products.getProductDetailAction(options)
   },
 
   /**
@@ -72,11 +80,6 @@ const pageConfig = {
    */
   onShareAppMessage: function () {
 
-  },
-  getPhoneNumber(e){
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
   }
 }
 function mapStateToProps({ products }) {

@@ -3,12 +3,12 @@
 	<view class="back" bind:tap="navigateBack"style="padding-top:{{statusBarHeight}}px;height:{{customBarHeight}}px;line-height:{{customBarHeight}}px;">
 		<slot wx:if="{{leftSolt}}" name="left"></slot>
     <view wx:else class='default-back'>
-      <component-icon type="back" size="40" color="#323232"/>
+      <component-icon type="back" size="40" color="{{color}}"/>
 		  <view class="back-home" style="">返回</view>
     </view>
     
 	</view>
-  <slot wx:if="contentSolt" name='content'></slot>
-	<view wx:else class="title"  >{{title!='none'?title:''}}</view>
+  <slot wx:if="{{contentSolt}}" name='content'></slot>
+	<view wx:else class="title">{{title}}</view>
 </view>
 <view class="navigation-bar-holder" wx:if="{{fixed && show}}" style="background:{{placeholderBg}};padding-top:{{statusBarHeight}}px;height:{{customBarHeight}}px;line-height:{{customBarHeight}}px;width:750rpx;"></view>
