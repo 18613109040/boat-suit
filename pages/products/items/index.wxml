@@ -1,4 +1,4 @@
-<view class='prod-item'>
+<view class='prod-item' bindtap='toDetail'>
   <view class='prod-top'>
     <view class='line'>
       <image src='{{product.ico}}' class='prod-image'></image>
@@ -21,7 +21,7 @@
           <view class='info-value'>{{product.period}}</view>
         </view>
       </view>
-      <button class='apply-btn'>立即贷款</button>
+      <button class='apply-btn' catchtap=''>立即贷款</button>
     </view>
   </view>
  

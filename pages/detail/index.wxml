@@ -45,9 +45,9 @@
       <view class='clow'>
         <view class='select-amount'>选择期限</view>
         <view class='amount'>
-          <picker value="{{index}}" bindchange="pickerCabin" range="{{cabinOptions}}" range-key="name">
+          <picker value="{{index}}" bindchange="pickerCabin" range="{{detail.periodValues}}" range-key="display">
             <view class="picker">
-              <text>12月</text>
+              <text>{{currentPriod.display}}</text>
               <component-icon/>
             </view>
           </picker>

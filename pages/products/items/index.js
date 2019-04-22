@@ -23,7 +23,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    toDetail(){
+      const { id, type } = this.data.product
+      wx.navigateTo({
+        url: `/pages/detail/index?id=${id}&type=${type}`,
+      })
+    }
 
   }
 })

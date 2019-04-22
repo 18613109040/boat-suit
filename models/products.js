@@ -5,7 +5,9 @@ const inintProducts = {
   flter:[],
   nlList:[],
   blList:[],
-  detail:{}
+  detail:{
+    periodValues:[]
+  }
 }
 export default {
   namespace: 'products',
@@ -36,7 +38,15 @@ export default {
     },
     setProductDetail({ payload }, state){
       let newState = state.toJS()
+      payload.periodValues[payload.periodValues.length-1].selected = true
       return Immutable.fromJS({ ...newState, detail: payload || {} })
+    },
+    setChangePeriod({ payload }, state){
+      let newState = state.toJS()
+      newState.detail.periodValues.map((item,index)=>{
+        item.selected = index == payload?true:false
+      })
+      return Immutable.fromJS(newState)
     },
     emptyProductList({ payload }, state){
       if (payload == 'nl'){

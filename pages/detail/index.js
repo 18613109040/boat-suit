@@ -80,12 +80,19 @@ const pageConfig = {
    */
   onShareAppMessage: function () {
 
+  },
+  pickerCabin(e){
+    const { value } = e.detail;
+    dispatcher.products.setChangePeriod(value)
+    
   }
 }
 function mapStateToProps({ products }) {
   const { detail } = products.toJS()
+  const currentPriod = detail.periodValues.find(item=>item.selected)||{}
   return {
-    detail
+    detail,
+    currentPriod
   }
 }
 Page(connect(mapStateToProps)(pageConfig))
