@@ -41,9 +41,7 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   border-radius: 10rpx;
 }
 
-.scrollPage {
-  
-}
+
 
 .main-product {
   margin-top: 24rpx;

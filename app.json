@@ -5,7 +5,8 @@
     "pages/detail/index",
     "pages/products/index",
     "pages/citySelect/index",
-    "pages/find/index"
+    "pages/find/index",
+    "pages/webView/index"
   ],
   "permission": {
     "scope.userLocation": {

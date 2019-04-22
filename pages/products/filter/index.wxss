@@ -124,3 +124,15 @@
   line-height: 88rpx;
   height: 88rpx;
 }
+.range-number{
+  width: 686rpx;
+  margin-left: 32rpx;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #D0D2D8;
+  border-radius: 6px;
+  height: 64rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+}

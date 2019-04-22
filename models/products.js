@@ -1,5 +1,5 @@
 import { regeneratorRuntime } from '../libs/zoro'
-import { getProductsList, getProductDetail } from '../services/products.js'
+import { getProductsList, getProductDetail, startApply } from '../services/products.js'
 import Immutable from '../libs/immutable.js'
 const inintProducts = {
   flter:[],
@@ -28,6 +28,10 @@ export default {
         put({ type: 'setProductDetail', payload: res.data })
       }
     },
+    async startApplyAction({ payload }, { put }){
+     return await startApply(payload)
+    }
+    
   },
   reducers: {
     setProductsList({ payload }, state) {
@@ -39,7 +43,13 @@ export default {
     setProductDetail({ payload }, state){
       let newState = state.toJS()
       payload.periodValues[payload.periodValues.length-1].selected = true
+      payload.money = payload.quotaMax
       return Immutable.fromJS({ ...newState, detail: payload || {} })
+    },
+    setMoney({ payload }, state){
+      let newState = state.toJS()
+      newState.detail.money = payload
+      return Immutable.fromJS(newState)
     },
     setChangePeriod({ payload }, state){
       let newState = state.toJS()

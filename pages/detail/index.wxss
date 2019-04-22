@@ -124,6 +124,8 @@
   font-size: 32rpx;
   color: #181C28;
   margin-bottom: 33rpx;
+  display: flex;
+  align-items: center;
 }
 .advantages-icon{
   position: absolute;
@@ -139,10 +141,7 @@
   font-family: PingFangSC-Medium;
   font-size: 30rpx;
   color: #181C28;
-  border-left: 1rpx solid #E3E3E7;
-  margin-left: 20rpx;
-  padding-left: 36rpx;
-  padding-bottom: 33rpx;
+  margin-left: 16rpx;
  
 }
 .advantages-des{
@@ -154,7 +153,6 @@
 .app-info{
   background: #fff;
   margin: 32rpx;
-  padding: 32rpx;
   border-radius: 6rpx;
 }
 .app-info-title{
@@ -166,7 +164,7 @@
 .app-info-view{
   display: flex;
   align-items: center;
-  margin-top: 48rpx;
+  margin-top: 10rpx;
   margin-left: 10rpx;
 }
 .app-info-line{
@@ -200,4 +198,33 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.advantage-title{
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #181C28;
+}
+.advantages-des-t{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #181C28;
+
+}
+.chose-image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.icon-image{
+   width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
+}
+.app-title{
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.app-content{
+  padding: 32rpx;
+  border-bottom: 1px solid #EEEEF0;
 }

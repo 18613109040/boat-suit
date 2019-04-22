@@ -13,6 +13,7 @@ const pageConfig = {
   data: {
     screenHeight: app.globalData.screenHeight,
     tabBarHeight: app.globalData.tabBarHeight,
+    options: {},
     cabinOptions:[{
       name: '12月',
       value:12
@@ -30,6 +31,9 @@ const pageConfig = {
    */
   onLoad: function (options) {
     console.dir(options)
+    this.setData({
+      options: options
+    })
     dispatcher.products.getProductDetailAction(options)
   },
 
@@ -85,14 +89,32 @@ const pageConfig = {
     const { value } = e.detail;
     dispatcher.products.setChangePeriod(value)
     
+  },
+  selectMonry(e){
+    console.dir(e.detail.value)
+    const { value } = e.detail
+    dispatcher.products.setMoney(value)
+  },
+  startApply(){
+    dispatcher.products.startApplyAction(this.data.options).then(res=>{
+      if (res.resultCode === 200){
+        if (res.data.resultType=='jump'){
+          wx.navigateTo({
+            url: `/pages/webView/index?url=${res.data.url}`,
+          })
+        }
+      }
+    })
   }
 }
 function mapStateToProps({ products }) {
   const { detail } = products.toJS()
   const currentPriod = detail.periodValues.find(item=>item.selected)||{}
+  const interest = Math.round(detail.money * detail.rateValue * currentPriod.value)
   return {
     detail,
-    currentPriod
+    currentPriod,
+    interest
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

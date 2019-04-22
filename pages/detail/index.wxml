@@ -1,5 +1,5 @@
 <component-header title="详情" background="#4283F4" color="#FFFFFF" />
-<scroll-view scroll-y  style='height:{{screenHeight-tabBarHeight-20}}px' >
+<scroll-view scroll-y  style='height:{{screenHeight-20}}px' >
   <view class='detail'>
     <view class='detail-header'>
       <image src='{{detail.ico}}' class='detail-header-image'></image>
@@ -18,26 +18,26 @@
     <view class='title-t'>
       <view class='title-p'>抵押</view>
       <view class='title-p' style='flex:1.5'>费率</view>
-      <view class='title-p'>放款</view>
+      <view class='title-p' style='flex:1.2'>放款</view>
       <view class='title-p'>期限</view>
     </view>
     <view class='title-n'>
       <view class='title-i'>{{detail.mortgage}}</view>
       <view class='title-i' style='flex:1.5'>{{detail.rate}}</view>
-      <view class='title-i'>{{detail.lendingTime}}</view>
+      <view class='title-i' style='flex:1.2'>{{detail.lendingTime}}</view>
       <view class='title-i'>{{detail.period}}</view>
     </view>
   </view>
   <view class='interest-calculator'>
     <view class='calculator'>
-      <view class=''></view>
+      <image src='/images/details/jisuan.png' class='icon-image'></image>
       <view class=''>利息计算器</view>
     </view>
     <view class='chose-calculator'>
       <view class='clow'>
         <view class='select-amount'>选择金额</view>
         <view class='amount'>
-          <input value='{{detail.quotaMax}}' style='width:137rpx;' type='number'></input>
+          <input value='{{detail.money}}' style='width:120rpx;' type='number' confirm-type="done" bindblur="selectMonry" bindconfirm="selectMonry"></input>
           <text>元</text>
           <component-icon/>
         </view>
@@ -56,37 +56,64 @@
       <view class='clow'>
         <view class='select-amount'>利息计算</view>
         <view class='amount'>
-          <text>3000 元</text>
+          <text>{{interest}} 元</text>
         </view>
       </view>
     </view>
   </view>
   <view class='product-advantages'>
     <view class='advantages-title'>
+     <image src='/images/details/youshi.png' class='icon-image'></image>
       <text>产品优势</text>
     </view>
     <view class='advantages-content'>
-      <component-icon class='advantages-icon' color='#4283F4' type='chose-o'/>
-      <view class='advantages-item'>
-        <view >
-          手续简单
-        </view>
-        <view class='advantages-des'>手续简单，工薪阶层皆可办理；</view>
+      <image src='/images/details/chose.png' class='chose-image'></image>
+      <view class='advantages-item' wx:for="{{detail.advantage}}" wx:key="{{index}}">
+        <view class='advantage-title' wx:if="{{item.title}}">{{item.title}}</view>
+        <view class='advantages-des' wx:if="{{item.title}}" >{{item.content}}</view>
+        <view class='advantages-des-t' wx:if="{{!item.title}}" >{{item.content}}</view>
       </view>
     </view>
   </view>
   <view class='app-info'>
-    <view class=''>
-      <view class='app-info-title'>申请条件</view>
+    <view class='app-content'>
+      <view class='app-title'>
+        <image src='/images/details/jisuan.png' class='icon-image'></image>
+        <view class='app-info-title'>申请条件</view>
+      </view>
       <view class=''>
-        <view class='app-info-view'>
+        <view class='app-info-view' wx:for="{{detail.conditions}}" wx:key="{{index}}">
           <view class='app-info-line'></view>
-          <text class='app-info-name'>地区：西藏、新疆、青海、甘肃暂不开放；</text>
+          <text class='app-info-name'>{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='app-content'>
+      <view class='app-title'>
+        <image src='/images/details/jisuan.png' class='icon-image'></image>
+        <view class='app-info-title'>贷款产品介绍</view>
+      </view>
+      <view class=''>
+        <view class='app-info-view' wx:for="{{detail.conditions}}" wx:key="{{index}}">
+          <view class='app-info-line'></view>
+          <text class='app-info-name'>{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='app-content' wx:if="{{detail.requiredDocument&&detail.requiredDocument.length>0}}">
+       <view class='app-title'>
+        <image src='/images/details/jisuan.png' class='icon-image'></image>
+        <view class='app-info-title'>申请所需资料</view>
+      </view>
+      <view class=''>
+        <view class='app-info-view' wx:for="{{detail.requiredDocument}}" wx:key="{{index}}">
+          <view class='app-info-line'></view>
+          <text class='app-info-name'>{{item}}</text>
         </view>
       </view>
     </view>
   </view>
 </scroll-view>
 <view class="footer-btn" style='height:{{tabBarHeight+20}}px'>
-    <button class="btn">立即申请贷款</button>
+    <button class="btn"  bindtap='startApply'>立即申请贷款</button>
 </view>

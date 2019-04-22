@@ -104,9 +104,11 @@ const page = {
   }
 }
 function mapStateToProps({ filter }) {
-  const { filterData } = filter.toJS()
+  const { filterData, productMenu } = filter.toJS()
+  const type = productMenu.find(item => item.selected).type
   return {
-    filterData
+    filterData,
+    type
   }
 }
 Component(connectComponent(mapStateToProps)(page))

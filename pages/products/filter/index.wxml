@@ -18,7 +18,7 @@
     </view>
   </view>
   <!-- 筛选 -->
-  <scroll-view scroll-y class="scroll-view_H"   wx:if="{{selectIndex==3}}" class='popup-content' style='height:{{screenHeight -statusBarHeight-customBarHeight-150}}px'>
+  <scroll-view wx:if="{{type=='BL'&&selectIndex==3}}" scroll-y class="scroll-view_H" class='popup-content' style='height:{{screenHeight -statusBarHeight-customBarHeight-150}}px'>
     <view wx:for="{{filterData[selectIndex].orders}}" wx:key="{{index}}" class='o-filter'>
       <view class='o-type'>{{item.name}}</view>
       <view class='tag-all'>
@@ -28,7 +28,6 @@
           {{itemName.name}}
           </view>
         </view>
-       
       </view>
     </view>
     <view class='footer-bar'>
@@ -36,4 +35,14 @@
       <button class='enter-btn' bindtap='filterEnter'>确定</button>
     </view>
   </scroll-view>
+  <view wx:else>
+    <view  class='o-filter'>
+      <view class='o-type'>{{item.name}}</view>
+    </view>
+    <view>
+      <view class='range-number'>
+        <input placeholder="输入最低金额" style='margin-left:40rpx;'/> <text>~</text> <input placeholder="输入最高金额" style='margin-left:40rpx;'/>
+      </view>
+    </view>
+  </view>
 </component-popup>

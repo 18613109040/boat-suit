@@ -1,0 +1,6 @@
+<component-header  />
+<scroll-view scroll-y  style='height:{{screenHeight}}px' >
+  <web-view src="https://m.igola.com">
+
+  </web-view>
+</scroll-view>
