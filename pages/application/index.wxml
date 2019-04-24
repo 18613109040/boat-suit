@@ -1,0 +1,68 @@
+<component-header title="填写申请信息" />
+<scroll-view scroll-y style='height:{{screenHeight-60}}px'>
+  <view class="form-group">
+    <view class="title">职业身份</view>
+    <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        <text class='picker-text'>请选择</text>
+        <component-icon type='left'/>
+      </view>
+    </picker>
+  </view>
+  <view class="form-group">
+    <view class="title">收入水平</view>
+    <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        <text class='picker-text'>请选择</text>
+        <component-icon type='left'/>
+      </view>
+    </picker>
+  </view>
+  <view class="form-group">
+    <view class="title">名下房产类型</view>
+    <picker mode="multiSelector" bindchange="MultiChange" bindcolumnchange="MultiColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        <text class='picker-text'>请选择</text>
+        <component-icon type='left'/>
+      </view>
+    </picker>
+  </view>
+  <view class='line'>
+    <view class='tag'>有公积金</view>
+    <view class='tag'>有社保</view>
+    <view class='tag'>名下有车</view>
+  </view>
+  <view class='col'>
+    <view class='col-title'>选填项</view>
+    <view class='col-tag'>正确填写以下信息有助于提高贷款成功率</view>
+  </view>
+  <view class="form-group">
+    <view class="title">真实姓名</view>
+    <input class='input-text' placeholder="请输入您的真实姓名"></input>
+  </view>
+  <view class="form-group">
+    <view class="title">身份证号</view>
+    <input class='input-text' type="idcard" placeholder="请输入您的身份证号"></input>
+  </view>
+  <view class="form-group">
+    <view class="title">上传个人征信简报</view>
+    <view class="picker">
+        <text class='picker-text'>请选择</text>
+        <component-icon type='left'/>
+    </view>
+  </view>
+  <view class='raiders'>
+    <image class='raiders-icon' src='/images/details/tag.png'></image>
+    <view class='raiders-text'>个人征信获取攻略</view>
+  </view>
+  <view class='phone'>
+    <view class='phone-number'>手机号码</view>
+    <view class='phone-content'>
+      <input type='number' class='input-phone'></input>
+      <view class='get-viter'>获取验证码</view>
+    </view>
+  </view>
+</scroll-view>
+<view class="footer-btn" style='height:60px'>
+  <button class="btn" bindtap='startApply'>确认并提交申请</button>
+</view>

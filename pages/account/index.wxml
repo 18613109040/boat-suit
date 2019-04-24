@@ -8,6 +8,8 @@
       <view class='account-phone'>手机号: 18613109040</view>
     </view>
   </view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
   <view class="account-prv">
     <image class='image-icon'></image>
     <view style='flex:1'>个人申请信息</view>

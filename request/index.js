@@ -22,9 +22,9 @@ export function request(options) {
           const data = res.data;
           // token 过期
           if (res.statusCode === 401) {
-            // wx.switchTab({
-            //   url: '/pages/account/index',
-            // })
+            wx.switchTab({
+              url: '/pages/account/index',
+            })
           } else {
             resolve(data)
           }

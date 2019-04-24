@@ -12,13 +12,15 @@ const pageConfig = {
    */
   data: {
     screenHeight: app.globalData.screenHeight,
+    tabBarHeight: app.globalData.tabBarHeight,
+    options: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    
   },
 
   /**
@@ -68,49 +70,12 @@ const pageConfig = {
    */
   onShareAppMessage: function () {
 
-  },
-  getPhoneNumber(e){
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-  },
-  getPhoneNumber(e){
-    const {encryptedData, iv } = e.detail;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          dispatcher.account.wxCheckPhoneAction({
-            code: res.code,
-            encryptedData: encryptedData,
-            iv: iv
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
-  getUserInfo(e){
-    const { userInfo, encryptedData, iv } = e.detail;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          dispatcher.account.wxCheckCodeAction({
-            code: res.code,
-            nickName: userInfo.nickName,
-            avatar: userInfo.avatarUrl
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
   }
+
 }
 function mapStateToProps({ products }) {
-  const { detail } = products.toJS()
   return {
-    detail
+   
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

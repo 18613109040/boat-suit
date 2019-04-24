@@ -42,7 +42,8 @@ export default {
     },
     setProductDetail({ payload }, state){
       let newState = state.toJS()
-      payload.periodValues[payload.periodValues.length-1].selected = true
+      if (payload.periodValues)
+        payload.periodValues[payload.periodValues.length-1].selected = true
       payload.money = payload.quotaMax
       return Immutable.fromJS({ ...newState, detail: payload || {} })
     },
