@@ -96,11 +96,15 @@ const pageConfig = {
     dispatcher.products.setMoney(value)
   },
   startApply(){
-    dispatcher.products.startApplyAction(this.data.options).then(res=>{
+    dispatcher.application.startApplyAction(this.data.options).then(res=>{
       if (res.resultCode === 200){
         if (res.data.resultType=='jump'){
           wx.navigateTo({
             url: `/pages/webView/index?url=${res.data.url}`,
+          })
+        }else{
+          wx.navigateTo({
+            url: '/pages/application/index',
           })
         }
       }
@@ -109,7 +113,7 @@ const pageConfig = {
 }
 function mapStateToProps({ products }) {
   const { detail } = products.toJS()
-  const currentPriod = detail.periodValues.find(item=>item.selected)||{}
+  const currentPriod = detail.periodValue&&detail.periodValues.find(item=>item.selected)||{}
   const interest = Math.round(detail.money * detail.rateValue * currentPriod.value)
   return {
     detail,

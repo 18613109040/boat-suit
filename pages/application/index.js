@@ -70,12 +70,65 @@ const pageConfig = {
    */
   onShareAppMessage: function () {
 
+  },
+  bindChangeProfess(e){
+    const { value } = e.detail;
+    dispatcher.application.setProfessionIndex(value)
+  },
+  bindChangeIncome(e){
+    const { value } = e.detail;
+    dispatcher.application.setIncomeIndex(value)
+  },
+  bindChangeHouse(e){
+    const { value } = e.detail;
+    dispatcher.application.setHouseIndex(value)
+  },
+  changeName(e){
+    const { value } = e.detail
+    dispatcher.application.setName(value)
+  },
+  changeIdCard(e){
+    const { value } = e.detail
+    dispatcher.application.setIdCard(value)
+  },
+  changePhone(e){
+    const { value } = e.detail
+    dispatcher.application.setPhone(value)
+  },
+  uploadImage(){
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+      }
+    })
   }
 
 }
-function mapStateToProps({ products }) {
+function mapStateToProps({ application }) {
+  const { houseList, incomeList, name, idCard, phone, professionList, selectHouseIndex, selectIncomeIndex, selectProfessionIndex, fund, socialSecurity, car } = application.toJS();
+  const houseType =  selectHouseIndex == -1 ? '请选择' : houseList[selectHouseIndex]
+  const professionType = selectProfessionIndex == -1 ? '请选择' : professionList[selectProfessionIndex]
+  const incomeType = selectIncomeIndex == -1 ? '请选择' : incomeList[selectIncomeIndex]
   return {
-   
+    houseList,
+    incomeList,
+    professionList,
+    selectHouseIndex, 
+    selectIncomeIndex, 
+    selectProfessionIndex,
+    houseType,
+    professionType,
+    incomeType,
+    name,
+    idCard,
+    phone,
+    fund, 
+    socialSecurity,
+    car
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

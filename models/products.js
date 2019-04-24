@@ -1,5 +1,5 @@
 import { regeneratorRuntime } from '../libs/zoro'
-import { getProductsList, getProductDetail, startApply } from '../services/products.js'
+import { getProductsList, getProductDetail } from '../services/products.js'
 import Immutable from '../libs/immutable.js'
 const inintProducts = {
   flter:[],
@@ -27,9 +27,6 @@ export default {
       if (res.resultCode === 200) {
         put({ type: 'setProductDetail', payload: res.data })
       }
-    },
-    async startApplyAction({ payload }, { put }){
-     return await startApply(payload)
     }
     
   },

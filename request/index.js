@@ -9,7 +9,7 @@ export function request(options) {
     header: {
       "igola-client": "ios_native",
       "Version-Name": 13.0,
-      "authorization": `token ${token}`,
+      "Authorization": `Bearer ${token}`,
       "guid": guid,
       ...options.header
     }

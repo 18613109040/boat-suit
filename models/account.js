@@ -10,7 +10,7 @@ const inintAccount = {
    },
   searchLetter:[],
   cityList:[],
-  userInfo:{}
+  userInfo: wx.getStorageSync("userInfo")|| {}
 }
 export default {
   namespace: 'account',
@@ -25,7 +25,7 @@ export default {
     async wxCheckCodeAction({ payload }, { put }){
       const res =  await wxCheckCode(payload)
       if (res.resultCode==200) {
-        // put({ type: 'setAccountInfo', payload: res.data })
+        put({ type: 'setAccountInfo', payload: res.data })
       }
     },
     async wxCheckPhoneAction({ payload }, { put }) {
@@ -56,7 +56,12 @@ export default {
     },
     setAccountInfo({ payload }, state){
       let newState = state.toJS()
-      // newState.userInfo 
+      newState.userInfo = payload.userInfo;
+      wx.setStorageSync('userInfo', payload.userInfo)
+      wx.setStorage({
+        key: 'token',
+        data: payload.token
+      })
     }
   },
 }
