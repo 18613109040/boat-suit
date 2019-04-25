@@ -14,23 +14,11 @@ const pageConfig = {
     screenHeight: app.globalData.screenHeight,
     tabBarHeight: app.globalData.tabBarHeight,
     options: {},
-    cabinOptions:[{
-      name: '12月',
-      value:12
-    }, {
-        name: '11月',
-        value: 11
-      }, {
-        name: '10月',
-        value: 10
-      }]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.dir(options)
     this.setData({
       options: options
     })

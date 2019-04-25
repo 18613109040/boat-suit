@@ -5,6 +5,7 @@ import {
 import {
   connect
 } from '../../libs/weapp-redux'
+import { isIdCard, isName, isPone } from '../../utils/util.js'
 const pageConfig = {
 
   /**
@@ -85,15 +86,52 @@ const pageConfig = {
   },
   changeName(e){
     const { value } = e.detail
+    if (!isName(value)) {
+      wx.showToast({
+        title: '用户名不正确',
+        icon: 'none',
+        duration: 2000
+      })
+    }
     dispatcher.application.setName(value)
   },
   changeIdCard(e){
     const { value } = e.detail
+    if(!isIdCard(value)){
+      wx.showToast({
+        title: '身份证号码不正确',
+        icon: 'none',
+        duration: 2000
+      })
+    }
     dispatcher.application.setIdCard(value)
   },
   changePhone(e){
     const { value } = e.detail
+    if (!isPone(value)) {
+      wx.showToast({
+        title: '手机号码格式不正确',
+        icon: 'none',
+        duration: 2000
+      })
+    }
     dispatcher.application.setPhone(value)
+  },
+  selectFund(){
+    dispatcher.application.setFund()
+  },
+  selectSocialSecurity(){
+    dispatcher.application.setSocialSecurity()
+  },
+  selectCar(){
+    dispatcher.application.setCar()
+  },
+  getApplyVerifyCode(){
+    dispatcher.application.getApplyVerifyCodeAction()
+  },
+  changeCode(e){
+    const { value } = e.detail
+    dispatcher.application.setCode(value)
   },
   uploadImage(){
     wx.chooseImage({
@@ -113,6 +151,7 @@ function mapStateToProps({ application }) {
   const houseType =  selectHouseIndex == -1 ? '请选择' : houseList[selectHouseIndex]
   const professionType = selectProfessionIndex == -1 ? '请选择' : professionList[selectProfessionIndex]
   const incomeType = selectIncomeIndex == -1 ? '请选择' : incomeList[selectIncomeIndex]
+  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1 && isName(name) && isIdCard(idCard) && isPone(phone)
   return {
     houseList,
     incomeList,
