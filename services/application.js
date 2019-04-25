@@ -22,7 +22,17 @@ export function getApplyVerifyCode(params) {
     data: params,
   })
 }
-
+// 提交申请
+export function businiessApply(params) {
+  return request({
+    url: 'businiess/v1.0/apply',
+    method: 'POST',
+    header: {
+      'content-type': 'application/json'
+    },
+    data: params,
+  })
+}
 
 
 

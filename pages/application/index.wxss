@@ -133,14 +133,15 @@ color: #4283F4;
   font-size: 26rpx;
   color: #FFFFFF;
   width: 194rpx;
-  height: 65rpx;
-  line-height: 65rpx;
+  height: 68rpx;
+  line-height: 68rpx;
   text-align: center;
 
 }
 .input-phone{
   width: 283rpx;
   height: 64rpx;
+  padding-left: 10rpx;
   border: 1px solid #D0D2D8;
   border-radius: 6rpx 0 0 6rpx;
 }

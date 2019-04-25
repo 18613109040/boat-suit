@@ -1,5 +1,5 @@
 import { regeneratorRuntime } from '../libs/zoro'
-import { startApply, getApplyVerifyCode } from '../services/application.js'
+import { startApply, getApplyVerifyCode, businiessApply } from '../services/application.js'
 import Immutable from '../libs/immutable.js'
 const inintApplication = {
   desc:"",
@@ -13,6 +13,7 @@ const inintApplication = {
   name: '',
   phone:'',
   fund:'',
+  id:'',
   socialSecurity:'',
   car: '',
   code:''
@@ -31,7 +32,9 @@ export default {
     },
     async getApplyVerifyCodeAction({ payload }, { put }){
       return await getApplyVerifyCode(payload)
-      
+    },
+    async businiessApplyAction({ payload }, { put }){
+      return await businiessApply(payload)
     }
   },
   reducers: {
@@ -65,15 +68,15 @@ export default {
     },
     setFund({ payload }, state){
       let newState = state.toJS()
-      return Immutable.fromJS({ ...newState, fund: fund?'有':''}) 
+      return Immutable.fromJS({ ...newState, fund: newState.fund ? '' :'有'}) 
     },
     setSocialSecurity({ payload }, state){
       let newState = state.toJS()
-      return Immutable.fromJS({ ...newState, socialSecurity: socialSecurity ? '有' : '' }) 
+      return Immutable.fromJS({ ...newState, socialSecurity: newState.socialSecurity ? '' : '有' }) 
     },
-    selectCar({ payload }, state){
+    setCar({ payload }, state){
       let newState = state.toJS()
-      return Immutable.fromJS({ ...newState, car: car ? '有' : '' }) 
+      return Immutable.fromJS({ ...newState, car: newState.car ? '' : '有' }) 
     },
     setCode({ payload }, state){
       let newState = state.toJS()

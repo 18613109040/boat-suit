@@ -14,7 +14,10 @@ const pageConfig = {
   data: {
     screenHeight: app.globalData.screenHeight,
     tabBarHeight: app.globalData.tabBarHeight,
-    options: {}
+    options: {},
+    text:'获取验证码',
+    number:60,
+    isCountDown:false
   },
 
   /**
@@ -127,7 +130,33 @@ const pageConfig = {
     dispatcher.application.setCar()
   },
   getApplyVerifyCode(){
-    dispatcher.application.getApplyVerifyCodeAction()
+    const { phone, isShowCode, id, number } = this.data;
+    if (!isShowCode) return ;
+    this.setData({
+      isCountDown: true
+    })
+    dispatcher.application.getApplyVerifyCodeAction({
+      id:id,
+      phone: phone
+    }).then(res=>{
+      if (res.resultCode == 200){
+        this.setinterval = setInterval(()=>{
+          if (this.data.number==0){
+            clearInterval(this.setinterval)
+            this.setData({
+              number:60,
+              isCountDown:false
+            })
+          }else{
+            let count = this.data.number - 1
+            this.setData({
+              number: count,
+              text: `${count}s`
+            })
+          }
+        },1000)
+      }
+    })
   },
   changeCode(e){
     const { value } = e.detail
@@ -143,15 +172,40 @@ const pageConfig = {
         const tempFilePaths = res.tempFilePaths
       }
     })
+  },
+  startApply(){
+    const { id, name, idCard, professionType, incomeType, socialSecurity, fund, houseType, car, phone, code } = this.data
+    const params = {
+      "id": id,
+      "name": name,
+      "idCard": idCard,
+      "sex": "",
+      "profession": professionType,
+      "income": incomeType,
+      "socialSecurity": socialSecurity?'有':'无',
+      "fund": fund?'有':'无',
+      "house": houseType,
+      "car": car?'有':'无',
+      "credit": "",
+      "creditImg": "",
+      "phone": phone,
+      "needVerify": true,
+      "save": 1,
+      "verifyCode": code
+    }
+    dispatcher.application.businiessApplyAction(params).then(res=>{
+      console.dir(res)
+    })
   }
 
 }
 function mapStateToProps({ application }) {
-  const { houseList, incomeList, name, idCard, phone, professionList, selectHouseIndex, selectIncomeIndex, selectProfessionIndex, fund, socialSecurity, car } = application.toJS();
+  const { houseList, incomeList, name, idCard, phone, professionList, selectHouseIndex, selectIncomeIndex, selectProfessionIndex, fund, socialSecurity, car, id, code } = application.toJS();
   const houseType =  selectHouseIndex == -1 ? '请选择' : houseList[selectHouseIndex]
   const professionType = selectProfessionIndex == -1 ? '请选择' : professionList[selectProfessionIndex]
   const incomeType = selectIncomeIndex == -1 ? '请选择' : incomeList[selectIncomeIndex]
-  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1 && isName(name) && isIdCard(idCard) && isPone(phone)
+  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1
+  const isShowCode = isPone(phone)
   return {
     houseList,
     incomeList,
@@ -167,7 +221,11 @@ function mapStateToProps({ application }) {
     phone,
     fund, 
     socialSecurity,
-    car
+    car,
+    isShowBtn,
+    isShowCode,
+    id,
+    code
   }
 }
 Page(connect(mapStateToProps)(pageConfig))
