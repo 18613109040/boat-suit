@@ -107,10 +107,10 @@ const pageConfig = {
     })
   }
 }
-function mapStateToProps({ products }) {
-  const { detail } = products.toJS()
+function mapStateToProps({ account }) {
+  const { userInfo } = account.toJS()
   return {
-    detail
+    userInfo
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

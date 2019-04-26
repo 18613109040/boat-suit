@@ -62,6 +62,7 @@ export default {
         key: 'token',
         data: payload.token
       })
+      return Immutable.fromJS({ ...newState })
     }
   },
 }

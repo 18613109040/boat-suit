@@ -1,31 +1,36 @@
 <component-header title="我的" leftSolt="{{true}}" background="#4283F4" color="#FFFFFF" />
 <scroll-view scroll-y  style='height:{{screenHeight}}px' >
   <view class='account-header-bg'></view>
-  <view class='account-info'>
-    <image src='' class='account-image'></image>
-    <view>
-      <view class='account-name'>ChrissieChau</view>
-      <view class='account-phone'>手机号: 18613109040</view>
+  <view wx:if="{{!userInfo.nickName}}">
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
+  </view>
+  <view wx:else>
+    <view class='account-info'>
+      <image src='{{userInfo.avatar}}' class='account-image'></image>
+      <view>
+        <view class='account-name'>{{userInfo.nickName}}</view>
+        <view class='account-phone'>手机号: {{userInfo.hasPhone?'':'未绑定手机号码'}}</view>
+      </view>
     </view>
-  </view>
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
-  <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>
-  <view class="account-prv">
-    <image class='image-icon'></image>
-    <view style='flex:1'>个人申请信息</view>
-    <component-icon type='left'/>
-  </view>
-  <view class='account-nav'>
-    <view class='collection'>
+    <view class="account-prv">
       <image class='image-icon'></image>
-      <view style='flex:1'>我的收藏</view>
-      <text class='no-collect'>暂无收藏</text>
+      <view style='flex:1'>个人申请信息</view>
       <component-icon type='left'/>
     </view>
-     <view class='collection'>
-      <image class='image-icon'></image>
-      <view style='flex:1'>申请记录</view>
-      <component-icon type='left'/>
+    <view class='account-nav'>
+      <view class='collection'>
+        <image class='image-icon'></image>
+        <view style='flex:1'>我的收藏</view>
+        <text class='no-collect'>暂无收藏</text>
+        <component-icon type='left'/>
+      </view>
+      <view class='collection'>
+        <image class='image-icon'></image>
+        <view style='flex:1'>申请记录</view>
+        <component-icon type='left'/>
+      </view>
     </view>
   </view>
+  
 </scroll-view>
