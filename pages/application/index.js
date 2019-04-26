@@ -137,7 +137,7 @@ const pageConfig = {
     })
     dispatcher.application.getApplyVerifyCodeAction({
       id:id,
-      phone: phone
+      phone: `w${phone}`
     }).then(res=>{
       if (res.resultCode == 200){
         this.setinterval = setInterval(()=>{
@@ -155,6 +155,12 @@ const pageConfig = {
             })
           }
         },1000)
+      }else{
+        wx.showToast({
+          title: res.errorDescription,
+          icon: 'none',
+          duration: 2000
+        })
       }
     })
   },
@@ -195,6 +201,15 @@ const pageConfig = {
     }
     dispatcher.application.businiessApplyAction(params).then(res=>{
       console.dir(res)
+      if (res.resultCode==200){
+       
+      }else{
+        wx.showToast({
+          title: res.errorDescription,
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
   }
 
@@ -204,7 +219,7 @@ function mapStateToProps({ application }) {
   const houseType =  selectHouseIndex == -1 ? '请选择' : houseList[selectHouseIndex]
   const professionType = selectProfessionIndex == -1 ? '请选择' : professionList[selectProfessionIndex]
   const incomeType = selectIncomeIndex == -1 ? '请选择' : incomeList[selectIncomeIndex]
-  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1
+  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1 && isPone(phone)&& code
   const isShowCode = isPone(phone)
   return {
     houseList,
