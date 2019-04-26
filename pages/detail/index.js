@@ -79,7 +79,6 @@ const pageConfig = {
     
   },
   selectMonry(e){
-    console.dir(e.detail.value)
     const { value } = e.detail
     dispatcher.products.setMoney(value)
   },
@@ -97,7 +96,16 @@ const pageConfig = {
         }
       }
     })
+  },
+  // 收藏
+  addFavorite(){
+    dispatcher.collection.addFavoriteAction(this.data.options)
+  },
+  // 取消收藏
+  removeFavorite(){
+    dispatcher.collection.removeFavoriteAction(this.data.options)
   }
+
 }
 function mapStateToProps({ products }) {
   const { detail } = products.toJS()
