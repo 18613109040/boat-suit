@@ -6,6 +6,7 @@ import {
   connect
 } from '../../libs/weapp-redux'
 import { isIdCard, isName, isPone } from '../../utils/util.js'
+import { host } from '../../config.js'
 const pageConfig = {
 
   /**
@@ -17,7 +18,8 @@ const pageConfig = {
     options: {},
     text:'获取验证码',
     number:60,
-    isCountDown:false
+    isCountDown:false,
+    creditImg:''
   },
 
   /**
@@ -45,14 +47,14 @@ const pageConfig = {
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    clearInterval(this.setinterval)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(this.setinterval)
   },
 
   /**
@@ -169,6 +171,7 @@ const pageConfig = {
     dispatcher.application.setCode(value)
   },
   uploadImage(){
+    let token = wx.getStorageSync('token');
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -176,11 +179,26 @@ const pageConfig = {
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: `${host}/businiess/v1.0/credit-img/upload`, // 仅为示例，非真实的接口地址
+          header:{
+            "Authorization": `Bearer ${token}`,
+          },
+          filePath: tempFilePaths[0],
+          name: 'file',
+          success(res) {
+            if (res.resultCode==200){
+              this.setData({
+                creditImg: res.data
+              })
+            }
+          }
+        })
       }
     })
   },
   startApply(){
-    const { id, name, idCard, professionType, incomeType, socialSecurity, fund, houseType, car, phone, code } = this.data
+    const { id, name, idCard, professionType, incomeType, socialSecurity, fund, houseType, car, phone, code, creditImg } = this.data
     const params = {
       "id": id,
       "name": name,
@@ -193,16 +211,34 @@ const pageConfig = {
       "house": houseType,
       "car": car?'有':'无',
       "credit": "",
-      "creditImg": "",
+      "creditImg": creditImg,
       "phone": phone,
       "needVerify": true,
       "save": 1,
       "verifyCode": code
     }
-    dispatcher.application.businiessApplyAction(params).then(res=>{
-      console.dir(res)
-      if (res.resultCode==200){
-       
+    this.setData({
+      isShowBtn:false
+    })
+    dispatcher.application.businiessApplyAction(params).then(resd=>{
+      if (resd.resultCode==200){
+        wx.showModal({
+          title: '提交成功',
+          content: '您已经成功申请',
+          confirmText: '确定',
+          cancelText: '产品列表',
+          success(res) {
+            if (res.confirm) {
+              wx.reLaunch({
+                url: '/pages/record/index',
+              })
+            } else if (res.cancel) {
+              wx.switchTab({
+                url: '/pages/products/index',
+              })
+            }
+          }
+        })
       }else{
         wx.showToast({
           title: res.errorDescription,

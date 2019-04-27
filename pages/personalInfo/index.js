@@ -38,7 +38,7 @@ const pageConfig = {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    dispatcher.account.getUserApplyInfo()
   },
 
   /**
@@ -129,118 +129,18 @@ const pageConfig = {
   selectCar() {
     dispatcher.application.setCar()
   },
-  getApplyVerifyCode() {
-    const { phone, isShowCode, id, number } = this.data;
-    if (!isShowCode) return;
-    this.setData({
-      isCountDown: true
-    })
-    dispatcher.application.getApplyVerifyCodeAction({
-      id: id,
-      phone: `w${phone}`
-    }).then(res => {
-      if (res.resultCode == 200) {
-        this.setinterval = setInterval(() => {
-          if (this.data.number == 0) {
-            clearInterval(this.setinterval)
-            this.setData({
-              number: 60,
-              isCountDown: false
-            })
-          } else {
-            let count = this.data.number - 1
-            this.setData({
-              number: count,
-              text: `${count}s`
-            })
-          }
-        }, 1000)
-      } else {
-        wx.showToast({
-          title: res.errorDescription,
-          icon: 'none',
-          duration: 2000
-        })
-      }
-    })
-  },
+ 
   changeCode(e) {
     const { value } = e.detail
     dispatcher.application.setCode(value)
   },
-  uploadImage() {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
-      }
-    })
-  },
-  startApply() {
-    const { id, name, idCard, professionType, incomeType, socialSecurity, fund, houseType, car, phone, code } = this.data
-    const params = {
-      "id": id,
-      "name": name,
-      "idCard": idCard,
-      "sex": "",
-      "profession": professionType,
-      "income": incomeType,
-      "socialSecurity": socialSecurity ? '有' : '无',
-      "fund": fund ? '有' : '无',
-      "house": houseType,
-      "car": car ? '有' : '无',
-      "credit": "",
-      "creditImg": "",
-      "phone": phone,
-      "needVerify": true,
-      "save": 1,
-      "verifyCode": code
-    }
-    dispatcher.application.businiessApplyAction(params).then(res => {
-      console.dir(res)
-      if (res.resultCode == 200) {
-
-      } else {
-        wx.showToast({
-          title: res.errorDescription,
-          icon: 'none',
-          duration: 2000
-        })
-      }
-    })
-  }
+ 
 
 }
-function mapStateToProps({ application }) {
-  const { houseList, incomeList, name, idCard, phone, professionList, selectHouseIndex, selectIncomeIndex, selectProfessionIndex, fund, socialSecurity, car, id, code } = application.toJS();
-  const houseType = selectHouseIndex == -1 ? '请选择' : houseList[selectHouseIndex]
-  const professionType = selectProfessionIndex == -1 ? '请选择' : professionList[selectProfessionIndex]
-  const incomeType = selectIncomeIndex == -1 ? '请选择' : incomeList[selectIncomeIndex]
-  const isShowBtn = selectHouseIndex !== -1 && selectProfessionIndex !== -1 && selectIncomeIndex !== -1 && isPone(phone) && code
-  const isShowCode = isPone(phone)
+function mapStateToProps({ account }) {
+  const { applyInfo } = account.toJS()
   return {
-    houseList,
-    incomeList,
-    professionList,
-    selectHouseIndex,
-    selectIncomeIndex,
-    selectProfessionIndex,
-    houseType,
-    professionType,
-    incomeType,
-    name,
-    idCard,
-    phone,
-    fund,
-    socialSecurity,
-    car,
-    isShowBtn,
-    isShowCode,
-    id,
-    code
+    applyInfo
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

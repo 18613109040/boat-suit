@@ -22,3 +22,14 @@ export function wxCheckPhone(params) {
     data: params,
   })
 }
+
+export function getUserApplyInfo(params){
+  return request({
+    url: "businiess/v1.0/user-apply-info",
+    method: 'GET',
+    header: {
+      'content-type': 'application/json'
+    },
+    data: params,
+  })
+}

@@ -10,7 +10,7 @@ const pageConfig = {
    * 页面的初始数据
    */
   data: {
-    screenHeight: app.globalData.screenHeight,
+    height: app.globalData.height,
   },
 
   /**

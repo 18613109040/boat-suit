@@ -1,7 +1,6 @@
 import {
   request
 } from '../utils/fetch.js'
-
 export function startApply(params) {
   return request({
     url: `businiess/v1.0/start-apply?id=${params.id}&type=${params.type}`,
@@ -33,6 +32,7 @@ export function businiessApply(params) {
     data: params,
   })
 }
+
 
 
 

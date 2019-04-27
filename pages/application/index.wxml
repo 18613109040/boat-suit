@@ -47,7 +47,7 @@
   <view class="form-group" bindtap='uploadImage'>
     <view class="title">上传个人征信简报</view>
     <view class="picker">
-        <text class='picker-text'>请选择</text>
+        <text class='picker-text'>{{creditImg?'查看':'请选择'}}</text>
         <component-icon type='left'/>
     </view>
   </view>

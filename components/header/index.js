@@ -8,6 +8,10 @@ Component({
       type: Boolean,
       value: false,
     },
+    navigateBack:{
+      type: Boolean,
+      value: false,
+    },
     contentSolt:{
       type: Boolean,
       value: false,
@@ -95,7 +99,12 @@ Component({
   methods: {
     // 这里是一个自定义方法
     navigateBack() {
-     wx.navigateBack()
+      if (this.data.navigateBack){
+        this.triggerEvent('navigateBack', {})
+      }else{
+        wx.navigateBack()
+      }
+      
     },
     /**
      * 切换导航栏显示

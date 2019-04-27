@@ -1,6 +1,9 @@
 {
   "pages": [
+  
     "pages/home/index",
+    "pages/personalInfo/index",
+    "pages/record/index",
     "pages/collection/index",
     "pages/application/index",
     "pages/account/index",
@@ -8,8 +11,9 @@
     "pages/products/index",
     "pages/citySelect/index",
     "pages/find/index",
-    "pages/webView/index",
-    "pages/personalInfo/index"
+    "pages/webView/index"
+    
+    
   ],
   "permission": {
     "scope.userLocation": {

@@ -1,0 +1,89 @@
+@import '/app.wxss';
+.prod-item{
+  margin: 24rpx 32rpx 0rpx 32rpx;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  padding-top: 32rpx ;
+
+}
+.prod-top{
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-bottom: 32rpx;
+}
+.line{
+  display: flex;
+  align-items: center;
+ 
+}
+.prod-image{
+  width: 56rpx;
+  height: 56rpx;
+}
+.prod-name{
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #181C28;
+  flex: 1;
+  margin-left: 16rpx;
+}
+.prod-range{
+  font-family: DINCond-Bold;
+  font-size: 40rpx;
+  color: #FF555F;
+}
+.range-des{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #7F8593;
+  text-align: right;
+  margin-bottom: 10rpx;
+}
+.flex-sub{
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.info{
+  flex: 1;
+}
+.info-title{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #7F8593;
+}
+.info-value{
+  font-family: PingFangSC-Medium;
+font-size: 26rpx;
+color: #181C28;
+margin-top: 3rpx;
+
+}
+.apply-btn{
+  background: #4283F4;
+border-radius: 6rpx;
+  width: 144rpx;
+  height: 48rpx;
+  font-family: PingFangSC-Regular;
+font-size: 22rpx;
+color: #FFFFFF;
+line-height: 48rpx;
+text-align: center;
+
+}
+.prod-bootom {
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+}
+.approve{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #B2B4BE;
+}
+.apply-time{
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #181C28;
+}

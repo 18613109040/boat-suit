@@ -1,4 +1,4 @@
-<component-header title="我的收藏" background="#4283F4" color="#FFFFFF" />
+<component-header title="申请记录" bind:navigateBack="navigateBack" background="#4283F4" color="#FFFFFF" navigateBack="{{true}}"  />
 <scroll-view  scroll-y style='height:{{height}}px' class='product-content' bindscrolltolower="lower">
   <component-item wx:for="{{list}}" wx:key="{{index}}" product="{{item}}" wx:if="{{list.length>0}}"/>
 </scroll-view>

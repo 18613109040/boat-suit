@@ -7,8 +7,6 @@ export function request(options) {
     data: options.data,
     method: options.method || 'GET',
     header: {
-      "igola-client":"ios_native",
-      "Version-Name": 13.0,
       "Authorization": `Bearer ${token}`,
       "guid":guid,
       ...options.header

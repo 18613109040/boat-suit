@@ -7,6 +7,7 @@ import filter from './models/filter.js'
 import citys from './models/citys.js'
 import application from './models/application.js'
 import collection from './models/collection.js'
+import record from './models/record.js'
 const app = zoro()
 app.model(home)
 app.model(products)
@@ -15,6 +16,8 @@ app.model(filter)
 app.model(citys)
 app.model(application)
 app.model(collection)
+app.model(record)
+
 const store = app.start(false)
 setStore(store)
 App({

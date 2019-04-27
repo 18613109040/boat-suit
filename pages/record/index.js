@@ -6,19 +6,18 @@ import {
   connect
 } from '../../libs/weapp-redux'
 const pageConfig = {
-
   /**
    * 页面的初始数据
    */
   data: {
-    screenHeight: app.globalData.screenHeight,
+    height: app.globalData.height,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.dir(options)
+    dispatcher.record.getApplyLogAction()
   },
 
   /**
@@ -69,45 +68,16 @@ const pageConfig = {
   onShareAppMessage: function () {
 
   },
-
-  getUserInfo(e){
-    if (e.detail.errMsg == 'getUserInfo:fail auth deny') return 
-    const { userInfo, encryptedData, iv } = e.detail;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          dispatcher.account.wxCheckCodeAction({
-            code: res.code,
-            nickName: userInfo.nickName,
-            avatar: userInfo.avatarUrl
-          })
-          // wx.navigateBack()
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
-  collection(){
-    wx.navigateTo({
-      url: '/pages/collection/index',
-    })
-  },
-  record(){
-    wx.navigateTo({
-      url: '/pages/record/index',
-    })
-  },
-  personalInfo(){
-    wx.navigateTo({
-      url: '/pages/personalInfo/index',
+  navigateBack(){
+    wx.switchTab({
+      url: '/pages/account/index',
     })
   }
 }
-function mapStateToProps({ account }) {
-  const { userInfo } = account.toJS()
+function mapStateToProps({ record }) {
+  const { list } = record.toJS()
   return {
-    userInfo
+    list
   }
 }
 Page(connect(mapStateToProps)(pageConfig))
