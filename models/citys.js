@@ -20,6 +20,7 @@ export default {
     async getCurrentCityAction({ payload }, { put }) {
       const city = await getCurrentAddress()
       put({ type: 'setCurrentCity', payload: city })
+      return city
     },
     async getHotCitysAction({ payload }, { put }) {
       const res = await getHotCitys(payload)

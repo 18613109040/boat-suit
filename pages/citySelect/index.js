@@ -28,14 +28,29 @@ const pageConfig = {
     },1000)
   },
   wxSortPickerViewItemTap (e) {
-    const { index } = e.currentTarget.dataset;
+    const { index, item } = e.currentTarget.dataset;
     dispatcher.citys.setCitySelected({index});
+    console.dir(item)
+    this.getData(item.code)
     wx.navigateBack();
   },
   hotSelect(e){
     const { item } = e.currentTarget.dataset;
     dispatcher.citys.setHotCitySelected({ ...item });
+    this.getData(item.code)
     wx.navigateBack();
+  },
+  getData(code){
+    // 热门产品
+    dispatcher.home.getNewProductsAction({
+      city: code,
+      recommendType: "N"
+    })
+    // 最新产品
+    dispatcher.home.getHotProductsAction({
+      city: code,
+      recommendType: "H"
+    })
   }
 }
 

@@ -1,0 +1,32 @@
+<view class='prod-item' bindtap='toDetail'>
+  <view class='prod-top'>
+    <view class='line'>
+      <image src='{{product.ico}}' class='prod-image'></image>
+      <view class='prod-name'>{{product.name}}</view>
+      <view class='prod-range'>{{product.quotaMin}}-{{product.quotaMax}}</view>
+    </view>
+    <view class='range-des'>额度范围(元)</view>
+    <view class='line'>
+      <view class='flex-sub'>
+        <view class='info'>
+          <view class='info-title'>利息</view>
+          <view class='info-value'>{{product.rate}}</view>
+        </view>
+        <view class='info'>
+          <view class='info-title'>放款</view>
+          <view class='info-value'>{{product.lendingTime}}</view>
+        </view>
+        <view class='info'>
+          <view class='info-title'>期限</view>
+          <view class='info-value'>{{product.period}}</view>
+        </view>
+      </view>
+      <!-- <button class='apply-btn' catchtap=''>立即贷款</button> -->
+    </view>
+  </view>
+ 
+  <view class='prod-bootom solid-top'>
+    <text class='tag-approve'>大船认证</text>
+    <text class='tag-prod'>额度高</text>
+  </view>
+</view>

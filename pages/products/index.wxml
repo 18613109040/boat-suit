@@ -4,7 +4,8 @@
   </view>
 </component-header>
 <component-filter/>
-<scroll-view scroll-y style='height:{{windowHeight-50}}px' class='product-content' bindscrolltolower="lower"
+<!-- <component-refresh id='refreshView' backgroundColor="#fff" bind:onRefresh="onPullDownRefresh"   /> -->
+<scroll-view  bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel' scroll-y style='height:{{windowHeight-50}}px' class='product-content' bindscrolltolower="lower"
  >
   <component-items wx:for="{{list}}" wx:key="{{index}}" product="{{item}}" wx:if="{{list.length>0}}"/>
 </scroll-view>

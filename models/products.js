@@ -57,6 +57,7 @@ export default {
       return Immutable.fromJS(newState)
     },
     emptyProductList({ payload }, state){
+      let newState = state.toJS()
       if (payload == 'nl'){
         return Immutable.fromJS({ ...newState, nlList: [] })
       } else if (payload =='bl'){
@@ -64,7 +65,10 @@ export default {
       }else{
         return Immutable.fromJS({ ...newState, nlList: [], blList:[] })
       }
-      
+    },
+    emprtyDetail({ payload }, state){
+      let newState = state.toJS()
+      return Immutable.fromJS({ ...newState, detail: {periodValues: []} })
     }
   },
 }

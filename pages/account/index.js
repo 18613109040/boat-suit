@@ -18,7 +18,7 @@ const pageConfig = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    console.dir(options)
   },
 
   /**
@@ -69,28 +69,9 @@ const pageConfig = {
   onShareAppMessage: function () {
 
   },
-  getPhoneNumber(e){
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-  },
-  getPhoneNumber(e){
-    const {encryptedData, iv } = e.detail;
-    wx.login({
-      success(res) {
-        if (res.code) {
-          dispatcher.account.wxCheckPhoneAction({
-            code: res.code,
-            encryptedData: encryptedData,
-            iv: iv
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
-  },
+
   getUserInfo(e){
+    if (e.detail.errMsg == 'getUserInfo:fail auth deny') return 
     const { userInfo, encryptedData, iv } = e.detail;
     wx.login({
       success(res) {
@@ -100,10 +81,16 @@ const pageConfig = {
             nickName: userInfo.nickName,
             avatar: userInfo.avatarUrl
           })
+          // wx.navigateBack()
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
+    })
+  },
+  collection(){
+    wx.navigateTo({
+      url: '/pages/collection/index',
     })
   }
 }

@@ -1,15 +1,15 @@
 {
   "pages": [
-    
     "pages/home/index",
+    "pages/collection/index",
     "pages/application/index",
     "pages/account/index",
     "pages/detail/index",
     "pages/products/index",
     "pages/citySelect/index",
     "pages/find/index",
-    "pages/webView/index"
-   
+    "pages/webView/index",
+    "pages/personalInfo/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -41,10 +41,7 @@
     ]
   },
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

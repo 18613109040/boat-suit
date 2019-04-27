@@ -1,0 +1,4 @@
+<component-header title="我的收藏" background="#4283F4" color="#FFFFFF" />
+<scroll-view  scroll-y style='height:{{screenHeight}}px' class='product-content' bindscrolltolower="lower">
+  <component-item wx:for="{{list}}" wx:key="{{index}}" product="{{item}}" wx:if="{{list.length>0}}"/>
+</scroll-view>

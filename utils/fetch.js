@@ -20,9 +20,9 @@ export function request(options) {
         ...params,
         success: (res) => {
           const data = res.data;
-          // 有些接口返回没有状态码 统一处理成 {resultCode:Number,data:any}形式
           // token 过期
           if(res.statusCode === 401){
+            // resolve({ resultCode: 401})
             wx.switchTab({
               url: '/pages/account/index',
             })

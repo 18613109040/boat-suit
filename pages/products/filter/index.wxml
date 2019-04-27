@@ -35,7 +35,7 @@
       <button class='enter-btn' bindtap='filterEnter'>确定</button>
     </view>
   </scroll-view>
-  <view wx:else>
+  <!-- <view wx:else>
     <view  class='o-filter'>
       <view class='o-type'>{{item.name}}</view>
     </view>
@@ -44,5 +44,5 @@
         <input placeholder="输入最低金额" style='margin-left:40rpx;'/> <text>~</text> <input placeholder="输入最高金额" style='margin-left:40rpx;'/>
       </view>
     </view>
-  </view>
+  </view> -->
 </component-popup>

@@ -15,9 +15,9 @@
     <image class='rapid-loan' src='../../images/home/product01.png'  bindtap='goToNew'></image>
     <image class='bank-loan' src='../../images/home/product02.png' bindtap='goToHot'></image>
   </view>
-  <view class='product-list'>
+  <view class='product-list'  bindtap='goToNew'>
     <view class='title'>最新产品</view>
-    <view class='more' bindtap='goToNew'>更多</view>
+    <view class='more'>更多</view>
   </view>
   <view class='product-new'>
     <view class='product-item' data-type='{{item.type}}' data-id='{{item.id}}' bindtap='gotoDetails' wx:for="{{newProducts}}" wx:key="{{index}}" >
@@ -29,18 +29,20 @@
         </view>
     </view>
   </view>
-  <view class='product-list'>
+  <view class='product-list' bindtap='goToHot'>
     <view class='title'>热门产品</view>
-    <view class='more'  bindtap='goToHot'>更多</view>
+    <view class='more'  >更多</view>
   </view>
   <scroll-view scroll-x class='product-hot-list'>
-    <view class='hot-product product-color-0' wx:for="{{hotProducts}}" wx:key="{{index}}">
-      <view class='col'>
-        <view class='line line-color-{{index}}'></view>
-        <view class='name name-color-{{index}}'>{{item.name}}</view>
+    <view class='hot-product' wx:for="{{hotProducts}}" wx:key="{{index}}"  data-type='{{item.type}}' data-id='{{item.id}}' bindtap='goToHotDetail'>
+      <image src="/images/home/p{{index+1}}.png" class='product-bg-image'></image>
+      <view class='bg-content'>
+        <view class='col'>
+          <view class='name name-color-{{index}}'>{{item.name}}</view>
+        </view>
+        <view class='des des-color-{{index}}'>{{item.abs}}</view>
+        <view class='search search-color-{{index}}'>查看</view>
       </view>
-      <view class='des des-color-{{index}}'>{{item.abs}}</view>
-      <view class='search search-color-{{index}}'>查看</view>
     </view>
   </scroll-view>
 </scroll-view>

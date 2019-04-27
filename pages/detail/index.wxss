@@ -133,7 +133,14 @@
 }
 .advantages-content{
   display: flex;
-
+  margin-top: 10rpx;
+}
+.collection-image{
+  position: absolute;
+  height: 64rpx;
+  width: 204rpx;
+  right: 0rpx;
+  margin-top: -84rpx;
 }
 .advantages-item{
   position: relative;

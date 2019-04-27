@@ -1,8 +1,8 @@
 import { regeneratorRuntime } from '../libs/zoro'
-import { addFavorite, removeFavorite } from '../services/collection.js'
+import { addFavorite, removeFavorite, getFavorite } from '../services/collection.js'
 import Immutable from '../libs/immutable.js'
 const inintCollection = {
-
+  list:[]
 }
 export default {
   namespace: 'collection',
@@ -15,10 +15,19 @@ export default {
     //取消收藏
     async removeFavoriteAction({ payload }, { put }) {
       return await removeFavorite(payload)
+    },
+    async getFavoriteAction({ payload }, { put }){
+      const res = await getFavorite(payload)
+      if (res.resultCode === 200) {
+        put({ type: 'setFavorite', payload: res.data })
+      }
     }
 
   },
   reducers: {
-   
+    setFavorite({ payload }, state){
+      let newState = state.toJS()
+      return Immutable.fromJS({ ...newState, list: payload })
+    }
   }
 }

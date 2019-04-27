@@ -23,3 +23,14 @@ export function removeFavorite(params) {
     data: params,
   })
 }
+
+export function getFavorite(params) {
+  return request({
+    url: 'businiess/v1.0/favorites',
+    method: 'GET',
+    header: {
+      'content-type': 'application/json'
+    },
+    data: params,
+  })
+}

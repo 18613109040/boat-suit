@@ -39,6 +39,7 @@
 .image-icon{
   width: 44rpx;
   height: 44rpx;
+  margin-right: 23rpx;
 }
 .account-nav{
   margin: 32rpx;
@@ -56,4 +57,22 @@
   font-size: 24rpx;
   color: #7F8593;
   margin-right: 30rpx;
+}
+.longin-text{
+  font-family: PingFangSC-Semibold;
+  font-size: 48rpx;
+  color: #181C28;
+  text-align: left;
+}
+.login-tag{
+  background: #67CE70;
+  border-radius: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  text-align: center;
+  width: 152rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  margin-left: 16rpx;
 }

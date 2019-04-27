@@ -21,18 +21,18 @@ const pageConfig = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getProductList()
-    
+   
+    // this.refreshView = this.selectComponent("#refreshView")
   },
   getProductList(){
-    const { list, productMenu } = this.data;
+    const { list, productMenu, city } = this.data;
     const type = productMenu.find(item => item.selected).type
     let skip = 0
     this.setData({
       loding: false
     })
     dispatcher.products.getProductsListAction({
-      city: "1/44/1",
+      city: city.code,
       orderType: "", //排序类型  
       productType: type,
       quotaMin: 0, //额度最小
@@ -58,7 +58,8 @@ const pageConfig = {
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.getProductList()
+    dispatcher.products.emprtyDetail()
   },
 
   /**
@@ -74,14 +75,6 @@ const pageConfig = {
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -95,6 +88,7 @@ const pageConfig = {
   onShareAppMessage: function () {
 
   },
+
   clickMenu(e){
     const { index } = e.currentTarget.dataset;
     const { productMenu, nlList, blList } = this.data;
@@ -102,18 +96,42 @@ const pageConfig = {
     if ((productMenu[index].type == 'NL' && nlList.length == 0) || (productMenu[index].type == 'BL' && blList.length == 0) ){
       setTimeout(() => {
         this.getProductList();
-      }, 500)
+      }, 300)
     } 
 
   },
   lower(){
     if(this.data.loding)
       this.getProductList()
-  }
+  },
+  // //触摸开始
+  // handletouchstart: function (event) {
+  //   this.refreshView.handletouchstart(event)
+  // },
+  // //触摸移动
+  // handletouchmove: function (event) {
+  //   this.refreshView.handletouchmove(event)
+  // },
+  // //触摸结束
+  // handletouchend: function (event) {
+  //   this.refreshView.handletouchend(event)
+  // },
+  // //触摸取消
+  // handletouchcancel: function (event) {
+  //   this.refreshView.handletouchcancel(event)
+  // },
+  // //页面滚动
+  // onPageScroll: function (event) {
+  //   this.refreshView.onPageScroll(event)
+  // },
+  // onPullDownRefresh: function () {
+  //   setTimeout(() => { this.refreshView.stopPullRefresh() }, 1000)
+  // }
 }
-function mapStateToProps({ products, filter }) {
+function mapStateToProps({ products, filter, citys }) {
   const { productMenu } = filter.toJS()
   const { nlList, blList } = products.toJS()
+  const { city } = citys.toJS()
   const type = productMenu.find(item => item.selected).type
   let skip = 0
   let list = []
@@ -129,7 +147,8 @@ function mapStateToProps({ products, filter }) {
     nlList,
     blList,
     productMenu,
-    skip
+    skip,
+    city
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

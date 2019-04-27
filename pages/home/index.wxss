@@ -163,6 +163,11 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   height: 190rpx;
   margin-left: 25rpx;
 }
+.product-bg-image{
+  width: 310rpx;
+  height: 190rpx;
+  position: absolute;
+}
 
 .col {
   display: flex;
@@ -184,14 +189,19 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #fff;
 }
-
+.bg-content{
+  position: relative;
+  z-index: 100;
+}
 .des {
   margin-top: 8rpx;
   opacity: 0.6;
   font-family: PingFangSC-Regular;
   font-size: 22rpx;
   margin-left: 24rpx;
+  color: #fff;
 }
 
 .search {
@@ -204,6 +214,8 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   font-size: 22rpx;
   text-align: center;
   line-height: 32rpx;
+  color: #fff;
+   border: 1px solid #fff;
 }
 
 .line-color-0 {
@@ -223,18 +235,13 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
   border: 1px solid #f7cca5;
 }
 
-.product-color-0 {
-  background-image: linear-gradient(-135deg, #3f3f3f, #525152);
-}
-
-.product-color-1 {
-  background-image: linear-gradient(-135deg, #d3b382, #ebd39f);
-}
 
 .line-color-1 {
   background: #997b4b;
 }
-
+.name-color-0{
+  color: #F7CCA5;
+}
 .name-color-1 {
   color: #fff;
 }

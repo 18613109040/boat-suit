@@ -21,7 +21,6 @@ App({
   onLaunch() {
     wx.getSystemInfo({
       success: e => {
-        console.dir(e)
         const { statusBarHeight, system, screenHeight, windowHeight } = e;
         this.globalData.statusBarHeight = statusBarHeight;
         this.globalData.windowHeight = windowHeight;
@@ -40,7 +39,7 @@ App({
       }
     })
     app.setup();
-    dispatcher.citys.getCurrentCityAction();
+    // dispatcher.citys.getCurrentCityAction();
   },
   globalData: {
     userInfo: null,

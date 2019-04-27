@@ -14,9 +14,11 @@ const pageConfig = {
   data: {
     screenHeight: app.globalData.screenHeight,
     banner:[{
-      imageUrl:'/images/home/banner.png'
+      imageUrl:'/images/home/banner1.png'
     },{
-        imageUrl: '/images/home/banner.png'
+      imageUrl: '/images/home/banner2.png'
+    }, {
+      imageUrl: '/images/home/banner3.png'
     }]
   },
 
@@ -24,16 +26,19 @@ const pageConfig = {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 热门产品
-    dispatcher.home.getNewProductsAction({
-      city: "1/44/1",
-      recommendType: "N"
+    dispatcher.citys.getCurrentCityAction().then(res=>{
+      // 热门产品
+      dispatcher.home.getNewProductsAction({
+        city: res.code,
+        recommendType: "N"
+      })
+      // 最新产品
+      dispatcher.home.getHotProductsAction({
+        city: res.code,
+        recommendType: "H"
+      })
     })
-    // 最新产品
-    dispatcher.home.getHotProductsAction({
-      city: "1/44/1",
-      recommendType: "H"
-    })
+   
   },
 
   /**
@@ -46,7 +51,7 @@ const pageConfig = {
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow () {
 
   },
 
@@ -105,6 +110,12 @@ const pageConfig = {
     })
   },
   gotoDetails(e){
+    const { id, type } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/detail/index?id=${id}&type=${type}`,
+    })
+  },
+  goToHotDetail(e){
     const { id, type } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `/pages/detail/index?id=${id}&type=${type}`,

@@ -13,7 +13,9 @@ const pageConfig = {
   data: {
     screenHeight: app.globalData.screenHeight,
     tabBarHeight: app.globalData.tabBarHeight,
-    options: {},
+    options: {
+      type: ''
+    },
   },
   /**
    * 生命周期函数--监听页面加载
@@ -82,8 +84,35 @@ const pageConfig = {
     const { value } = e.detail
     dispatcher.products.setMoney(value)
   },
+  getPhoneNumber(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+  },
+  getPhoneNumber(e) {
+    const { encryptedData, iv } = e.detail;
+    wx.login({
+        success(res) {
+          if (res.code) {
+            dispatcher.account.wxCheckPhoneAction({
+              code: res.code,
+              encryptedData: encryptedData,
+              iv: iv
+            }).then(res => {
+              if (res.resultCode == 200)
+                this.startApply()
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
+    
+  },
   startApply(){
+    const { nickName } = this.data
     dispatcher.application.startApplyAction(this.data.options).then(res=>{
+      console.dir(res)
       if (res.resultCode === 200){
         if (res.data.resultType=='jump'){
           wx.navigateTo({
@@ -94,27 +123,54 @@ const pageConfig = {
             url: '/pages/application/index',
           })
         }
+      }else{
+        // const { id, type } = this.data.options;
+        // wx.switchTab({
+        //   url: `/pages/account/index?url="/pages/detail/index?id=${id}&type=${type}"`,
+        // })
       }
     })
   },
   // 收藏
   addFavorite(){
-    dispatcher.collection.addFavoriteAction(this.data.options)
+    const token = wx.getStorageSync('token')
+    if (token){
+      dispatcher.collection.addFavoriteAction(this.data.options).then(res=>{
+        if (res.resultCode==200){
+          wx.showToast({
+            title: '收藏成功',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      })
+    }else{
+      wx.showToast({
+        title: '用户尚未登录,请先登录',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+     
   },
   // 取消收藏
   removeFavorite(){
     dispatcher.collection.removeFavoriteAction(this.data.options)
   }
-
+  
 }
-function mapStateToProps({ products }) {
+function mapStateToProps({ products, account }) {
   const { detail } = products.toJS()
-  const currentPriod = detail.periodValue&&detail.periodValues.find(item=>item.selected)||{}
+  const { userInfo } = account.toJS()
+  
+  const currentPriod = detail.periodValues&&detail.periodValues.find(item=>item.selected)||{}
   const interest = Math.round(detail.money * detail.rateValue * currentPriod.value)
   return {
     detail,
     currentPriod,
-    interest
+    interest,
+    hasPhone: userInfo.hasPhone,
+    nickName: userInfo.nickName
   }
 }
 Page(connect(mapStateToProps)(pageConfig))
