@@ -1,1 +1,1 @@
-export const host = "https://dev.dataenergy.tech/api-gateway" 
+export const host = "https://dev.dpargo.com/api-gateway" 
