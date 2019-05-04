@@ -1,6 +1,6 @@
 {
   "pages": [
-  
+        
     "pages/home/index",
     "pages/personalInfo/index",
     "pages/record/index",
@@ -11,9 +11,9 @@
     "pages/products/index",
     "pages/citySelect/index",
     "pages/find/index",
+    "pages/evaluation/index",
     "pages/webView/index"
-    
-    
+
   ],
   "permission": {
     "scope.userLocation": {

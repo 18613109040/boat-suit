@@ -1,0 +1,37 @@
+.btn{
+  background: rgba(81,199,91,0.87);
+  border-radius: 6rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  text-align: center;
+  width: 327rpx;
+  height: 88rpx;
+}
+.btn-1{
+  background:  rgba(251,152,42,0.10);
+  border-radius: 6rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 327rpx;
+  height: 88rpx;
+  color: #FB982A;
+  justify-content: center;
+}
+.footer-btn{
+  background: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-imgae{
+  width: 48rpx;
+  height: 48rpx;
+}

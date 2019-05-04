@@ -1,0 +1,12 @@
+<component-header title="产品评测" background="#4283F4" color="#FFFFFF" />
+<scroll-view scroll-y  style='height:{{screenHeight-20}}px' >
+</scroll-view>
+<view class="footer-btn" style='height:{{tabBarHeight+20}}px'>
+    <button class="btn-1">
+      <image class='search-imgae' src='/images/details/chakan.png'></image>
+      <view>
+        查看详情
+      </view>
+    </button>
+    <button class="btn"  bindtap='startApply' >传送门</button>
+</view>

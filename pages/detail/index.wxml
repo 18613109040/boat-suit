@@ -118,7 +118,7 @@
 </scroll-view>
 <view class="footer-btn" style='height:{{tabBarHeight+20}}px'>
   <!-- <button class="btn" wx:if="{{!hasPhone&&nickName}}"open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即申请贷款</button> -->
-    <button class="btn-1">
+    <button class="btn-1" bindtap='goToEvaluation'>
       <image class='search-imgae' src='/images/details/chakan.png'></image>
       <view>
         查看评测

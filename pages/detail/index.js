@@ -157,7 +157,6 @@ const pageConfig = {
   // 取消收藏
   removeFavorite(){
     dispatcher.collection.removeFavoriteAction(this.data.options).then(res=>{
-     
       if (res.resultCode == 200) {
         wx.showToast({
           title: '取消收藏',
@@ -166,6 +165,11 @@ const pageConfig = {
         })
         dispatcher.products.setFavorite(false)
       }
+    })
+  },
+  goToEvaluation(){
+    wx.navigateTo({
+      url: '/pages/evaluation/index',
     })
   }
   
