@@ -142,6 +142,7 @@ const pageConfig = {
             icon: 'none',
             duration: 2000
           })
+          dispatcher.products.setFavorite(true)
         }
       })
     }else{
@@ -155,7 +156,17 @@ const pageConfig = {
   },
   // 取消收藏
   removeFavorite(){
-    dispatcher.collection.removeFavoriteAction(this.data.options)
+    dispatcher.collection.removeFavoriteAction(this.data.options).then(res=>{
+     
+      if (res.resultCode == 200) {
+        wx.showToast({
+          title: '取消收藏',
+          icon: 'none',
+          duration: 2000
+        })
+        dispatcher.products.setFavorite(false)
+      }
+    })
   }
   
 }

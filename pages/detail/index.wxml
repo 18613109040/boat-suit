@@ -14,7 +14,7 @@
     <view>
       <view class='range-title'>额度范围(元)</view>
       <view class='range-number'>{{detail.quotaMin}} - {{detail.quotaMax}}</view>
-      <image src='/images/details/collection.png' wx:if="{{detail.collection}}" class='collection-image' bindtap='addFavorite'></image>
+      <image src='/images/details/hascollection.png' wx:if="{{detail.isFavorite}}" class='collection-image' bindtap='removeFavorite'></image>
       <image src='/images/details/collection.png' wx:else class='collection-image' bindtap='addFavorite'></image>
     </view>
     <view class='title-t'>
@@ -117,6 +117,12 @@
   </view>
 </scroll-view>
 <view class="footer-btn" style='height:{{tabBarHeight+20}}px'>
-  <button class="btn" wx:if="{{!hasPhone&&nickName}}"open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即申请贷款</button>
-  <button class="btn" wx:else bindtap='startApply' >立即申请贷款</button>
+  <!-- <button class="btn" wx:if="{{!hasPhone&&nickName}}"open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即申请贷款</button> -->
+    <button class="btn-1">
+      <image class='search-imgae' src='/images/details/chakan.png'></image>
+      <view>
+        查看评测
+      </view>
+    </button>
+    <button class="btn"  bindtap='startApply' >传送门</button>
 </view>

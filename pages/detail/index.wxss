@@ -193,8 +193,21 @@
   font-size: 32rpx;
   color: #FFFFFF;
   text-align: center;
-  width: 686rpx;
+  width: 327rpx;
   height: 88rpx;
+}
+.btn-1{
+  background:  rgba(251,152,42,0.10);
+  border-radius: 6rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 327rpx;
+  height: 88rpx;
+  color: #FB982A;
+  justify-content: center;
 }
 .footer-btn{
   background: #FFFFFF;
@@ -234,4 +247,8 @@
 .app-content{
   padding: 32rpx;
   border-bottom: 1px solid #EEEEF0;
+}
+.search-imgae{
+  width: 48rpx;
+  height: 48rpx;
 }

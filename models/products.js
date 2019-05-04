@@ -69,6 +69,11 @@ export default {
     emprtyDetail({ payload }, state){
       let newState = state.toJS()
       return Immutable.fromJS({ ...newState, detail: {periodValues: []} })
+    },
+    setFavorite({ payload }, state){
+      let newState = state.toJS()
+      console.dir(payload)
+      return Immutable.fromJS({ ...newState, detail: Object.assign(newState.detail, { isFavorite: payload }) })
     }
   },
 }
