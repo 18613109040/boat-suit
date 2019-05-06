@@ -24,7 +24,7 @@ const pageConfig = {
     this.setData({
       options: options
     })
-    dispatcher.products.getProductDetailAction(options)
+    dispatcher.details.getProductDetailAction(options)
   },
 
   /**
@@ -77,12 +77,12 @@ const pageConfig = {
   },
   pickerCabin(e){
     const { value } = e.detail;
-    dispatcher.products.setChangePeriod(value)
+    dispatcher.details.setChangePeriod(value)
     
   },
   selectMonry(e){
     const { value } = e.detail
-    dispatcher.products.setMoney(value)
+    dispatcher.details.setMoney(value)
   },
   getPhoneNumber(e) {
     console.log(e.detail.errMsg)
@@ -168,14 +168,15 @@ const pageConfig = {
     })
   },
   goToEvaluation(){
+    const { detail, options } = this.data
     wx.navigateTo({
-      url: '/pages/evaluation/index',
+      url: `/pages/evaluation/index?id=${detail.id}&type=${options.type}`,
     })
   }
   
 }
-function mapStateToProps({ products, account }) {
-  const { detail } = products.toJS()
+function mapStateToProps({ details, account }) {
+  const { detail } = details.toJS()
   const { userInfo } = account.toJS()
   
   const currentPriod = detail.periodValues&&detail.periodValues.find(item=>item.selected)||{}

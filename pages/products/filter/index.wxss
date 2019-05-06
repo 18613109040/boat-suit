@@ -57,6 +57,7 @@
   align-items: center;
   flex-wrap: wrap;
   margin-top: 24rpx;
+  padding-left: 32rpx;
 }
 
 .tag-item {
@@ -135,4 +136,5 @@
   height: 64rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
+  margin-top: 24rpx;
 }

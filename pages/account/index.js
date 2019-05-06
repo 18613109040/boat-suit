@@ -80,6 +80,14 @@ const pageConfig = {
             code: res.code,
             nickName: userInfo.nickName,
             avatar: userInfo.avatarUrl
+          }).then(res=>{
+            if (res.resultCode != 200){
+              wx.showToast({
+                title: '登录失败',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           })
           // wx.navigateBack()
         } else {

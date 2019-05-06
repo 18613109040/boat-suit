@@ -16,6 +16,7 @@ export default {
       if (res.resultCode==200) {
         put({ type: 'setAccountInfo', payload: res.data })
       }
+      return res
     },
     async wxCheckPhoneAction({ payload }, { put }) {
       const res = await wxCheckPhone(payload)

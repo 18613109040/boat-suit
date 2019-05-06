@@ -1,12 +1,119 @@
 <component-header title="产品评测" background="#4283F4" color="#FFFFFF" />
-<scroll-view scroll-y  style='height:{{screenHeight-20}}px' >
+<scroll-view scroll-y style='height:{{screenHeight-20}}px'>
+  <view class='detail'>
+    <view class='detail-header'>
+      <image src='{{detail.ico}}' class='detail-header-image'></image>
+      <view class='detail-header-right'>
+        <view class='detail-header-title'>{{detail.name}}</view>
+        <view class=''>
+          <text class='tag'>极速贷</text>
+          <text class='tag'>响应率100%</text>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class='range-title'>额度范围(元)</view>
+      <view class='range-number'>{{detail.quotaMin}} - {{detail.quotaMax}}</view>
+      <!-- <image src='/images/details/hascollection.png' wx:if="{{detail.isFavorite}}" class='collection-image' bindtap='removeFavorite'></image>
+      <image src='/images/details/collection.png' wx:else class='collection-image' bindtap='addFavorite'></image> -->
+    </view>
+    <view class='title-t'>
+      <view class='title-p'>抵押</view>
+      <view class='title-p' style='flex:1.5'>费率</view>
+      <view class='title-p' style='flex:1.2'>放款</view>
+      <view class='title-p'>期限</view>
+    </view>
+    <view class='title-n'>
+      <view class='title-i'>{{detail.mortgage}}</view>
+      <view class='title-i' style='flex:1.5'>{{detail.rate}}</view>
+      <view class='title-i' style='flex:1.2'>{{detail.lendingTime}}</view>
+      <view class='title-i'>{{detail.period}}</view>
+    </view>
+  </view>
+  <view class='evalution'>
+    <view class='base'>
+      <view class='rol'>
+        <image class='image' src='/images/details/changping.png'></image>
+        <text class='text'>基础指标</text>
+      </view>
+      <view wx:for="{{baseAssess}}" wx:key="{{index}}">
+        <view class='dengji'>
+          <view class='name'>{{item.title}}</view>
+          <view class='end'>
+            <text>优于</text>
+            <text class='zhibiao {{item.levelClass=="low"?"color-low":item.levelClass=="middle"?"color-middle":"color-high"}}'>{{item.level}}%</text>
+            <text>其他产品</text>
+          </view>
+        </view>
+        <view class='pingding'>
+          <view class='name {{item.levelClass=="low"?"color-low":item.levelClass=="middle"?"color-middle":"color-high"}}'>{{item.content}}</view>
+          <view class='content'>
+            <component-progress width="{{item.level}}%" color='{{item.levelClass=="low"?"#FF555F":item.levelClass=="middle"?"#FB982A":"#51C75B"}}' />
+          </view>
+        </view>
+        <view class='rate' wx:if="{{item.rate}}">
+          <text>利息：</text>
+          <text class='rate-color'>{{item.rate}}</text>
+          <text class='rate-title'>费用：</text>
+          <text class='rate-color'>{{item.feeRate}}</text>
+          <text class='rate-title'>其他一次性费用：</text>
+          <text class='rate-color'>{{item.feeOnce}}</text>
+        </view>
+        <view class='product-new' wx:if="{{item.selected}}">
+          <view class='product-item' data-type='{{itemName.type}}' wx:for-index="idx" wx:for-item="itemName" data-id='{{itemName.id}}' bindtap='gotoDetails' wx:for="{{item.list}}" wx:key="{{idx}}">
+            <image class='product-logo' src="{{itemName.ico||'http://cms.dev.dataenergy.tech/products/ico/default.png'}}"></image>
+            <view class='product-name'>{{itemName.name}}</view>
+            <view class='product-advantage'>{{itemName.abs}}</view>
+            <view class='product-tag'>
+              <text class='product-tag-text'>{{itemName.rate}}</text>
+            </view>
+          </view>
+        </view>
+        <button class='more-btn' bindtap='loadMore' data-name='1' data-item="{{item}}" data-index="{{index}}" wx:if="{{item.selected}}">收起</button>
+        <button wx:else loading='{{cureentIndex==index&&name=="1"}}' bindtap='loadMore' data-name='1' data-item="{{item}}" data-index="{{index}}" class='more-btn'>{{item.type=='quota'?'更高额度产品推荐':item.type=='fee'?'更低费率产品推荐':'更快放款产品推荐'}}</button>
+      </view>
+    </view>
+
+    <view class='condition-assess'>
+      <view class='rol'>
+        <image class='image' src='/images/details/changping.png'></image>
+        <text class='text'>申请条件</text>
+      </view>
+      <view class='condition-centent' wx:for="{{conditionAssess}}" wx:key="{{index}}">
+        <view class='sub'>
+          <view class='title'>{{item.title}}</view>
+          <view class='number'>{{item.content}}</view>
+        </view>
+        <!-- <view class='right'>
+          <view class='text'>更低要求的产品推荐</view>
+        </view> -->
+      </view>
+    </view>
+
+    <view class='condition-assess'>
+      <view class='rol'>
+        <image class='image' src='/images/details/changping.png'></image>
+        <text class='text'>深度检测</text>
+      </view>
+      <view class='condition-centent' wx:for="{{deepAssess}}" wx:key="{{index}}">
+        <view class='sub'>
+          <view class='title'>{{item.title}}</view>
+          <view class='number'>{{item.content}}</view>
+        </view>
+        <view class='right'>
+          <view class='text'>{{item.tips}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
 </scroll-view>
 <view class="footer-btn" style='height:{{tabBarHeight+20}}px'>
-    <button class="btn-1">
-      <image class='search-imgae' src='/images/details/chakan.png'></image>
-      <view>
-        查看详情
-      </view>
-    </button>
-    <button class="btn"  bindtap='startApply' >传送门</button>
+  <button class="btn-1" bindtap='toDetail'>
+    <image class='search-imgae' src='/images/details/detail.png'></image>
+    <view>
+      查看详情
+    </view>
+  </button>
+  <button class="btn" bindtap='startApply'>传送门</button>
 </view>

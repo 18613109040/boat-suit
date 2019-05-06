@@ -11,10 +11,10 @@
       <image src="{{item.imageUrl}}" data-item='{{item}}' class="slide-image" bindtap='bindchange' mode='{{imageModel}}' />
     </swiper-item>
   </swiper>
-  <view class='main-product'>
+  <!-- <view class='main-product'>
     <image class='rapid-loan' src='../../images/home/product01.png'  bindtap='goToNew'></image>
     <image class='bank-loan' src='../../images/home/product02.png' bindtap='goToHot'></image>
-  </view>
+  </view> -->
   <view class='product-list'  bindtap='goToNew'>
     <view class='title'>最新产品</view>
     <view class='more'>更多</view>

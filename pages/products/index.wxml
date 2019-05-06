@@ -1,8 +1,9 @@
-<component-header  contentSolt="{{true}}" leftSolt="{{true}}" >
+<!-- <component-header  contentSolt="{{true}}" leftSolt="{{true}}" >
   <view slot='content' class='nav-tab' >
     <text bindtap='clickMenu' data-index='{{index}}' class='{{index==0&&item.selected?"nav-tab-1 nav-tab-select":index==1&&item.selected?"nav-tab-2 nav-tab-select":index==0?"nav-tab-1":"nav-tab-2"}}' wx:for="{{productMenu}}" wx:key="{{index}}" >{{item.name}}</text>
   </view>
-</component-header>
+</component-header> -->
+<component-header title="极速贷" leftSolt="{{true}}"  />
 <component-filter/>
 <!-- <component-refresh id='refreshView' backgroundColor="#fff" bind:onRefresh="onPullDownRefresh"   /> -->
 <scroll-view  bindtouchstart='handletouchstart' bindtouchmove='handletouchmove' bindtouchend='handletouchend' bindtouchcancel='handletouchcancel' scroll-y style='height:{{windowHeight-50}}px' class='product-content' bindscrolltolower="lower"

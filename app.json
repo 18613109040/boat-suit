@@ -1,7 +1,9 @@
 {
   "pages": [
-        
+     
     "pages/home/index",
+    "pages/evaluation/index",
+   
     "pages/personalInfo/index",
     "pages/record/index",
     "pages/collection/index",
@@ -11,7 +13,7 @@
     "pages/products/index",
     "pages/citySelect/index",
     "pages/find/index",
-    "pages/evaluation/index",
+    
     "pages/webView/index"
 
   ],

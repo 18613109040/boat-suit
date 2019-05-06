@@ -1,4 +1,4 @@
-import {
+ import {
   regeneratorRuntime
 } from '../libs/zoro'
 import Immutable from '../libs/immutable.js'
@@ -15,28 +15,23 @@ const inintFilter = {
   filterData: [{
     name: '综合排序',
     selected: false,
-    sortOrder: '',
-    sortType: '',
+    sortType: 'default',
     orders: [{
       name: '放款时间最快',
       selected: false,
-      sortOrder: '',
-      sortType: '',
+      sortType: 'time',
     }, {
       name: '利息最低',
       selected: false,
-      sortOrder: '',
-      sortType: '',
+      sortType: 'rate',
     }, {
       name: '额度最高',
       selected: false,
-      sortOrder: '',
-      sortType: '',
+      sortType: 'quto',
     }]
   }, {
     name: '易通过',
     selected: false,
-    sortOrder: '',
     sortType: '',
     orders: []
   }, {
@@ -185,7 +180,10 @@ const inintFilter = {
         sortType: '',
       }]
     }]
-  }]
+  }],
+  repayment: "", //还款方式  FQ 分期 DQ 到期
+  quotaMin: 0, //额度最小
+  quotaMax: 0
 }
 export default {
   namespace: 'filter',
@@ -200,7 +198,10 @@ export default {
     },
     setRest({ payload }, state){
       let newState = state.toJS()
-      newState.filterData[3] = inintFilter.filterData[3]
+      newState.filterData[3].selected = false
+      newState.repayment=  ""
+      newState.quotaMin= 0
+      newState.quotaMax= 0
       return Immutable.fromJS({ ...newState })
     },
     setProductMenu({ payload }, state){
@@ -208,6 +209,24 @@ export default {
       newState.productMenu.map((item,index)=>{
         item.selected = index == payload ? true : false
       })
+      return Immutable.fromJS({ ...newState })
+    },
+    setRepayment({ payload }, state){
+      let newState = state.toJS()
+      newState.repayment = payload
+      newState.filterData[3].selected = true
+      return Immutable.fromJS({ ...newState })
+    },
+    setQuotaMin({ payload }, state) {
+      let newState = state.toJS()
+      newState.quotaMin = payload
+      newState.filterData[3].selected = true
+      return Immutable.fromJS({ ...newState })
+    },
+    setQuotaMax({ payload }, state){
+      let newState = state.toJS()
+      newState.quotaMax = payload
+      newState.filterData[3].selected = true
       return Immutable.fromJS({ ...newState })
     }
   },

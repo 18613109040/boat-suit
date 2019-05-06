@@ -4,6 +4,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "component-icon": "/components/icon/index",
-    "component-header": "/components/header/index"
+    "component-header": "/components/header/index",
+    "component-progress": "/components/progress/index"
   }
 }

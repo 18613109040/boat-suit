@@ -25,27 +25,29 @@ const pageConfig = {
     // this.refreshView = this.selectComponent("#refreshView")
   },
   getProductList(){
-    const { list, productMenu, city } = this.data;
-    const type = productMenu.find(item => item.selected).type
-    let skip = 0
+    const { city, type, filterData, productMenu, quotaMin, quotaMax, repayment, skip } = this.data;
     this.setData({
       loding: false
     })
+   
+    const findOrderType = filterData[0].orders.find(item => item.selected)
+
     dispatcher.products.getProductsListAction({
       city: city.code,
-      orderType: "", //排序类型  
+      orderType: findOrderType ? findOrderType.sortType : '', //排序类型  
       productType: type,
-      quotaMin: 0, //额度最小
-      quotaMax: 0, //额度最大
-      repayment: "", //还款方式  FQ 分期 DQ 到期
-      mortgage: "", //抵押方式 No 不限 HOUSE 房子 CAR 车 OTHer 不限
-      companyType: "", // 机构类型 BANK  小贷公司 LC  PS  other
+      quotaMin: quotaMin, //额度最小
+      quotaMax: quotaMax, //额度最大
+      repayment: repayment, //还款方式  FQ 分期 DQ 到期
+      // mortgage: "", //抵押方式 No 不限 HOUSE 房子 CAR 车 OTHer 不限
+      // companyType: "", // 机构类型 BANK  小贷公司 LC  PS  other
       skip: skip
-    }).then(res=>{
+    }).then(res => {
       this.setData({
         loding: true
       })
     })
+   
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -59,7 +61,7 @@ const pageConfig = {
    */
   onShow: function () {
     this.getProductList()
-    dispatcher.products.emprtyDetail()
+    dispatcher.details.emprtyDetail()
   },
 
   /**
@@ -89,17 +91,6 @@ const pageConfig = {
 
   },
 
-  clickMenu(e){
-    const { index } = e.currentTarget.dataset;
-    const { productMenu, nlList, blList } = this.data;
-    dispatcher.filter.setProductMenu(index)
-    if ((productMenu[index].type == 'NL' && nlList.length == 0) || (productMenu[index].type == 'BL' && blList.length == 0) ){
-      setTimeout(() => {
-        this.getProductList();
-      }, 300)
-    } 
-
-  },
   lower(){
     if(this.data.loding)
       this.getProductList()
@@ -129,26 +120,22 @@ const pageConfig = {
   // }
 }
 function mapStateToProps({ products, filter, citys }) {
-  const { productMenu } = filter.toJS()
-  const { nlList, blList } = products.toJS()
+  
+  const { filterData, productMenu, quotaMin, quotaMax, repayment } = filter.toJS()
+  const { list } = products.toJS()
   const { city } = citys.toJS()
   const type = productMenu.find(item => item.selected).type
-  let skip = 0
-  let list = []
-  if (type == 'NL') {
-    skip = nlList.length
-    list = nlList
-  } else {
-    skip = blList.length
-    list = blList
-  }
+  let skip = list.length
   return {
     list,
-    nlList,
-    blList,
     productMenu,
     skip,
-    city
+    city,
+    filterData,
+    type,
+    quotaMin,
+    quotaMax,
+    repayment 
   }
 }
 Page(connect(mapStateToProps)(pageConfig))
