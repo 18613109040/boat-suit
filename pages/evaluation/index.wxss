@@ -127,6 +127,7 @@
 
 .condition-assess .rol {
   padding: 32rpx;
+  padding-bottom: 0px;
 }
 
 .condition-centent {

@@ -20,7 +20,7 @@ const pageConfig = {
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad (options) {
     this.setData({
       options: options
     })
@@ -37,8 +37,8 @@ const pageConfig = {
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow () {
+    
   },
 
   /**
@@ -142,7 +142,7 @@ const pageConfig = {
             icon: 'none',
             duration: 2000
           })
-          dispatcher.products.setFavorite(true)
+          dispatcher.details.setFavorite(true)
         }
       })
     }else{
@@ -163,7 +163,7 @@ const pageConfig = {
           icon: 'none',
           duration: 2000
         })
-        dispatcher.products.setFavorite(false)
+        dispatcher.details.setFavorite(false)
       }
     })
   },

@@ -16,11 +16,11 @@
         <view class='account-phone'>手机号: {{userInfo.hasPhone?'':'未绑定手机号码'}}</view>
       </view>
     </view>
-    <view class="account-prv" bindtap='personalInfo'>
+    <!-- <view class="account-prv" bindtap='personalInfo'>
       <image class='image-icon' src='/images/account/genren.png'></image>
       <view style='flex:1'>个人申请信息</view>
       <component-icon type='left'/>
-    </view>
+    </view> -->
     <view class='account-nav'>
       <view class='collection' bindtap='collection'>
         <image class='image-icon' src='/images/account/wode.png'></image>
@@ -28,11 +28,11 @@
         <!-- <text class='no-collect'>暂无收藏</text> -->
         <component-icon type='left'/>
       </view>
-      <view class='collection' bindtap='record'>
+      <!-- <view class='collection' bindtap='record'>
         <image class='image-icon' src='/images/account/jilu.png'></image>
         <view style='flex:1'>申请记录</view>
         <component-icon type='left'/>
-      </view>
+      </view> -->
     </view>
   </view>
   

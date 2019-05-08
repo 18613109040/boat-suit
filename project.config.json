@@ -14,7 +14,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.5",
+	"libVersion": "2.6.6",
 	"appid": "wxeaf7a2670b591d70",
 	"projectname": "boat-suit",
 	"debugOptions": {

@@ -30,11 +30,6 @@ export default {
       let newState = state.toJS()
       return Immutable.fromJS({ ...newState, list: [] })
       
-    },
-    setFavorite({ payload }, state){
-      let newState = state.toJS()
-      console.dir(payload)
-      return Immutable.fromJS({ ...newState, detail: Object.assign(newState.detail, { isFavorite: payload }) })
     }
   },
 }

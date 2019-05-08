@@ -98,9 +98,13 @@ export default {
       })
       return Immutable.fromJS(newState)
     },
+    setFavorite({ payload }, state) {
+      let newState = state.toJS()
+      return Immutable.fromJS({ ...newState, detail: Object.assign(newState.detail, { isFavorite: payload }) })
+    },
     emprtyDetail({ payload }, state) {
       let newState = state.toJS()
-      return Immutable.fromJS({ inintProducts })
+      return Immutable.fromJS( inintProducts )
     }
   },
 }

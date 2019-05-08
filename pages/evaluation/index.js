@@ -125,7 +125,12 @@ const pageConfig = {
       }
     })
   },
-
+  gotoDetails(e) {
+    const { id, type } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/detail/index?id=${id}&type=${type}`,
+    })
+  }
 
 }
 function mapStateToProps({ details }) {

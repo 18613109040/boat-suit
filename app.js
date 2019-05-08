@@ -5,7 +5,7 @@ import products from './models/products.js'
 import account from './models/account.js'
 import filter from './models/filter.js'
 import citys from './models/citys.js'
-import application from './models/application.js'
+// import application from './models/application.js'
 import collection from './models/collection.js'
 import record from './models/record.js'
 import detail from './models/detail.js'
@@ -15,7 +15,7 @@ app.model(products)
 app.model(account)
 app.model(filter)
 app.model(citys)
-app.model(application)
+// app.model(application)
 app.model(collection)
 app.model(record)
 app.model(detail)
