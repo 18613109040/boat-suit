@@ -1,0 +1,7 @@
+<component-header title="用户登录" />
+<view class='login'>
+  <button open-type="getUserInfo" lang="zh_CN" class='login-btn' bindgetuserinfo="getUserInfo">
+    微信用户一键登录
+  </button>
+  <view class='regise' bindtap='toRegister'>手机号码登录/注册</view>
+</view>

@@ -23,7 +23,7 @@ export function request(options) {
           // token 过期
           if (res.statusCode === 401) {
             wx.switchTab({
-              url: '/pages/account/index',
+              url: '/pages/login/index',
             })
           } else {
             resolve(data)

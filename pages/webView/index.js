@@ -66,5 +66,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  copy(){
+    wx.setClipboardData({
+      data: this.data.url,
+      success(res) {
+        wx.showToast({
+          title: '复制成功',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   }
 })

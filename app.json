@@ -1,21 +1,20 @@
 {
   "pages": [
-     
+    
     "pages/home/index",
     "pages/evaluation/index",
-   
     "pages/personalInfo/index",
     "pages/record/index",
     "pages/collection/index",
     "pages/application/index",
-    "pages/account/index",
     "pages/detail/index",
     "pages/products/index",
     "pages/citySelect/index",
     "pages/find/index",
-    
-    "pages/webView/index"
-
+    "pages/webView/index",
+    "pages/register/index",
+    "pages/account/index",
+    "pages/login/index"
   ],
   "permission": {
     "scope.userLocation": {

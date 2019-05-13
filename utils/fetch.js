@@ -12,6 +12,11 @@ export function request(options) {
       ...options.header
     }
   }
+ 
+  // wx.showLoading({
+  //     title: '',
+  // })
+  
   return new Promise((resolve, reject) => {
     wx.request(
       Object.assign({
@@ -21,14 +26,18 @@ export function request(options) {
           // token 过期
           if(res.statusCode === 401){
             // resolve({ resultCode: 401})
-            wx.switchTab({
-              url: '/pages/account/index',
+            wx.navigateTo({
+              url: '/pages/login/index',
             })
           }else{
             resolve(data)
           }
+         
         },
-        fail: reject
+        fail: reject,
+        complete:(res)=>{
+          // wx.hideLoading()
+        }  
       })
     )
   })

@@ -1,6 +1,6 @@
 import { regeneratorRuntime } from '../libs/zoro'
 import { getCurrentAddress } from '../utils/position.js'
-import { wxCheckCode, wxCheckPhone, getUserApplyInfo } from '../services/account.js'
+import { wxCheckCode, wxCheckPhone, getUserApplyInfo, getApplyCode, verifyCodeLogin } from '../services/account.js'
 const city = require('../utils/city.js');
 import Immutable from '../libs/immutable.js'
 const inintAccount = {
@@ -29,6 +29,17 @@ export default {
       if (res.resultCode == 200) {
         put({ type: 'setUserApplyInfo', payload: res.data })
       }
+    },
+    async getApplyCodeAction({ payload }, { put }){
+      const res = await getApplyCode(payload)
+      return res;
+    },
+    async verifyCodeLoginAction({ payload }, { put }){
+      const res = await verifyCodeLogin(payload)
+      if (res.resultCode == 200) {
+        put({ type: 'setAccountInfo', payload: res.data })
+      }
+      return res;
     }
     
   },
@@ -42,10 +53,17 @@ export default {
         data: payload.token
       })
       return Immutable.fromJS({ ...newState })
+    },
+    setUserApplyInfo({ payload }, state) {
+      let newState = state.toJS()
+      return Immutable.fromJS({ ...newState, applyInfo: payload })
+    },
+    loginOut({ payload }, state) {
+      let newState = state.toJS()
+      wx.removeStorageSync('userInfo');
+      wx.removeStorageSync('token');
+      return Immutable.fromJS({ ...newState, userInfo: { hasPhone: false } })
     }
-  },
-  setUserApplyInfo({ payload }, state){
-    let newState = state.toJS()
-    return Immutable.fromJS({ ...newState, applyInfo: payload })
   }
+  
 }

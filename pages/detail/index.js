@@ -16,6 +16,7 @@ const pageConfig = {
     options: {
       type: ''
     },
+    showLoading:true
   },
   /**
    * 生命周期函数--监听页面加载
@@ -85,11 +86,6 @@ const pageConfig = {
     dispatcher.details.setMoney(value)
   },
   getPhoneNumber(e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-  },
-  getPhoneNumber(e) {
     const { encryptedData, iv } = e.detail;
     wx.login({
         success(res) {
@@ -112,17 +108,21 @@ const pageConfig = {
   startApply(){
     const { nickName } = this.data
     dispatcher.application.startApplyAction(this.data.options).then(res=>{
-      console.dir(res)
       if (res.resultCode === 200){
-        if (res.data.resultType=='jump'){
-          wx.navigateTo({
-            url: `/pages/webView/index?url=${res.data.url}`,
-          })
-        }else{
-          wx.navigateTo({
-            url: '/pages/application/index',
-          })
-        }
+        wx.showModal({
+          title: '提示',
+          content: res.data.desc,
+          success(resd) {
+            if (resd.confirm) {
+              wx.navigateTo({
+                url: `/pages/webView/index?url=${res.data.url}`,
+              })
+            } else if (res.cancel) {
+              
+            }
+          }
+        })
+        
       }else{
         // const { id, type } = this.data.options;
         // wx.switchTab({
@@ -178,7 +178,7 @@ const pageConfig = {
 function mapStateToProps({ details, account }) {
   const { detail } = details.toJS()
   const { userInfo } = account.toJS()
-  
+  console.dir(detail)
   const currentPriod = detail.periodValues&&detail.periodValues.find(item=>item.selected)||{}
   const interest = Math.round(detail.money * detail.rateValue * currentPriod.value)
   return {

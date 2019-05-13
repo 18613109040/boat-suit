@@ -1,0 +1,14 @@
+<component-header title="绑定手机" />
+<view class='register'>
+  <view class='phone'>
+    <input placeholder="请输入手机号码" bindinput="changePhone" type="number"></input>
+    <text class='code' wx:if="{{codeStatus=='disable'}}">获取验证码</text>
+    <text class='code-show' wx:if="{{codeStatus=='show'}}" bindtap='getCode'>获取验证码</text>
+    <text class='code-show' wx:if="{{codeStatus=='pending'}}" >{{time}}s</text>
+  </view>
+  <view class='phone'>
+    <input placeholder="请输入验证码" type="number" bindinput="changeCode"></input>
+  </view>
+  <button class='login-btn' wx:if="{{btnStatus=='hidden'}}" disabled>登录</button>
+  <button class='login-btn-i' wx:else bindtap='login'>登录</button>
+</view>

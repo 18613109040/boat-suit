@@ -39,6 +39,7 @@ export default {
   reducers: {
     setProductDetail({ payload }, state) {
       let newState = state.toJS()
+      console.dir(payload)
       if (payload.periodValues)
         payload.periodValues[payload.periodValues.length - 1].selected = true
       payload.money = payload.quotaMax

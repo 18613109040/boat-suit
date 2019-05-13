@@ -1,3 +1,8 @@
-<web-view src="{{url}}">
-</web-view>
+<component-header title="web" />
+<view class='web-url'>
+  <view class='url'>
+    {{url}}
+  </view>
+  <button bindtap='copy'>复制</button>
+</view>
 

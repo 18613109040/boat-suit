@@ -1,0 +1,30 @@
+page{
+ background: #fff;
+}
+.register{
+  padding: 32rpx;
+}
+.phone{
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+}
+.code{
+  position: absolute;
+  right: 20rpx;
+  color: #ddd;
+}
+.login-btn{
+  margin-top: 80rpx;
+}
+.code-show{
+  position: absolute;
+  right: 20rpx;
+  color: #09bb07;
+}
+.login-btn-i{
+  margin-top: 80rpx;
+  background: #09bb07;
+  color: #fff;
+}

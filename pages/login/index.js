@@ -11,14 +11,14 @@ const pageConfig = {
    * 页面的初始数据
    */
   data: {
-    screenHeight: app.globalData.screenHeight,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.dir(options)
+
   },
 
   /**
@@ -69,16 +69,15 @@ const pageConfig = {
   onShareAppMessage: function () {
 
   },
-
-  getUserInfo(e){
-    if (e.detail.errMsg == 'getUserInfo:fail auth deny'){
+  getUserInfo(e) {
+    if (e.detail.errMsg == 'getUserInfo:fail auth deny') {
       wx.showToast({
         title: '登录失败',
         icon: 'none',
         duration: 2000
       })
       return false
-    }  
+    }
     const { userInfo, encryptedData, iv } = e.detail;
     wx.login({
       success(res) {
@@ -87,13 +86,15 @@ const pageConfig = {
             code: res.code,
             nickName: userInfo.nickName,
             avatar: userInfo.avatarUrl
-          }).then(res=>{
-            if (res.resultCode != 200){
+          }).then(res => {
+            if (res.resultCode != 200) {
               wx.showToast({
                 title: '登录失败',
                 icon: 'none',
                 duration: 2000
               })
+            }else{
+              wx.navigateBack()
             }
           })
           // wx.navigateBack()
@@ -103,34 +104,15 @@ const pageConfig = {
       }
     })
   },
-  collection(){
+  toRegister(){
     wx.navigateTo({
-      url: '/pages/collection/index',
+      url: '/pages/register/index',
     })
-  },
-  record(){
-    wx.navigateTo({
-      url: '/pages/record/index',
-    })
-  },
-  personalInfo(){
-    wx.navigateTo({
-      url: '/pages/personalInfo/index',
-    })
-  },
-  toLogin(){
-    wx.navigateTo({
-      url: '/pages/login/index',
-    })
-  },
-  loginOut(){
-    dispatcher.account.loginOut()
   }
 }
-function mapStateToProps({ account }) {
-  const { userInfo } = account.toJS()
+function mapStateToProps({  }) {
   return {
-    userInfo
+    
   }
 }
 Page(connect(mapStateToProps)(pageConfig))

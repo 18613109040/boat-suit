@@ -1,0 +1,18 @@
+page{
+ background: #fff;
+}
+.login{
+  padding: 32rpx;
+  height: 100%;
+}
+.login-btn{
+  width: 100%;
+  background: #09bb07;
+  color: #fff;
+}
+.regise{
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: 7F8593;
+  text-align: center;
+}

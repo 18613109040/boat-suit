@@ -112,16 +112,19 @@ const pageConfig = {
     const { nickName } = this.data
     dispatcher.application.startApplyAction(this.data.options).then(res => {
       if (res.resultCode === 200) {
-        if (res.data.resultType == 'jump') {
-          wx.navigateTo({
-            url: `/pages/webView/index?url=${res.data.url}`,
+          wx.showModal({
+            title: '提示',
+            content: res.data.desc,
+            success(resd) {
+              if (resd.confirm) {
+                wx.navigateTo({
+                  url: `/pages/webView/index?url=${res.data.url}`,
+                })
+              } else if (res.cancel) {
+
+              }
+            }
           })
-        } else {
-          wx.navigateTo({
-            url: '/pages/application/index',
-          })
-        }
-      } else {
       }
     })
   },

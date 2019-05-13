@@ -25,8 +25,29 @@ export function wxCheckPhone(params) {
 
 export function getUserApplyInfo(params){
   return request({
-    url: "businiess/v1.0/user-apply-info",
+    url: `businiess/v1.0/user-apply-info`,
     method: 'GET',
+    header: {
+      'content-type': 'application/json'
+    },
+    data: params,
+  })
+}
+
+export function getApplyCode(params){
+  return request({
+    url: `auth/v1.0/apply-code?phone=${params.phone}`,
+    method: 'GET',
+    header: {
+      'content-type': 'application/json'
+    },
+    data: params,
+  })
+}
+export function verifyCodeLogin(params) {
+  return request({
+    url: `auth/v1.0/verify-code-login`,
+    method: 'POST',
     header: {
       'content-type': 'application/json'
     },

@@ -124,5 +124,5 @@
         查看评测
       </view>
     </button>
-    <button class="btn"  bindtap='startApply' >传送门</button>
+    <button class="btn" bindtap='startApply'>传送门</button>
 </view>
